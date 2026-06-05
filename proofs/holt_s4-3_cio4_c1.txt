@@ -1,0 +1,18 @@
+// pass
+title: "S4-3C1 - Check It Out 4: Prove Triangles Congruent by SSS"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t), N (0, 0, t)
+seg: JK ML JL KM JN LN KN MN
+tri: t_JKN t_MLN
+[g_1] midpt(JL,N)
+[g_2] midpt(KM,N)
+[g_3] con_seg(JK,ML)
+-> con_tri(t_JKN,t_MLN)
+
+steps:
+[01] given(g_1) -> midpt(JL,N)
+[02] def_midpt(1) -> con_seg(JN,LN)
+[03] given(g_2) -> midpt(KM,N)
+[04] def_midpt(3) -> con_seg(KN,MN)
+[05] given(g_3) -> con_seg(JK,ML)
+[06] sss(5,2,4) -> con_tri(t_JKN,t_MLN)

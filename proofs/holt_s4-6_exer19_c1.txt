@@ -1,0 +1,17 @@
+// pass
+title: "S4-6C1 - Exercise 19: Prove Angles Congruent"
+premises:
+pt: B (0, 0, t), C (0, 0, t), D (0, 0, t), M (0, 0, t)
+seg: BD MB DM BC DC CM
+tri: t_CBM t_CDM
+[g_1] midpt(BD,M)
+[g_2] con_seg(BC,DC)
+-> con_ang(a_BCM,a_DCM)
+
+steps:
+[01] given(g_1) -> midpt(BD,M)
+[02] def_midpt(1) -> con_seg(MB,DM)
+[03] given(g_2) -> con_seg(BC,DC)
+[04] reflex_s() -> con_seg(CM,CM)
+[05] sss(2,3,4) -> con_tri(t_CBM,t_CDM)
+[06] cpctc(5) -> con_ang(a_BCM,a_DCM)

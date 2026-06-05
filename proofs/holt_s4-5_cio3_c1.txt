@@ -1,0 +1,16 @@
+// pass
+title: "S4-5C1 - Check It Out 3: Prove Triangles Congruent by AAS"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JL
+tri: t_JKL t_JML
+[g_1] ang_bisect(a_KLM,JL)
+[g_2] con_ang(a_JKL,a_JML)
+-> con_tri(t_JKL,t_JML)
+
+steps:
+[01] given(g_1) -> ang_bisect(a_KLM,JL)
+[02] def_ang_bisect(1) -> con_ang(a_KLJ,a_MLJ)
+[03] given(g_2) -> con_ang(a_JKL,a_JML)
+[04] reflex_s() -> con_seg(JL,JL)
+[05] aas(2,3,4) -> con_tri(t_JKL,t_JML)

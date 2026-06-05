@@ -1,0 +1,19 @@
+// pass
+title: "S4-6C1 - Exercise 11: Prove Midpoint"
+premises:
+pt: J (0, 0, t), L (0, 0, t), K (0, 0, t), M (0, 0, t)
+seg: JL KL LM JM KM JK
+tri: t_JLM t_KLM
+[d_01] on_line(JK,M)
+[g_1] ang_bisect(a_JLK,LM)
+[g_2] con_seg(JL,KL)
+-> midpt(JK,M)
+
+steps:
+[01] given(g_1) -> ang_bisect(a_JLK,LM)
+[02] def_ang_bisect(1) -> con_ang(a_JLM,a_KLM)
+[03] given(g_2) -> con_seg(JL,KL)
+[04] reflex_s() -> con_seg(LM,LM)
+[05] sas(3,2,4) -> con_tri(t_JLM,t_KLM)
+[06] cpctc(5) -> con_seg(JM,KM)
+[07] midpt_conv(6) -> midpt(JK,M)

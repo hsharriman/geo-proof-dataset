@@ -1,0 +1,15 @@
+// pass
+title: "S4-3C1 - Exercise 37: Prove Triangles Congruent"
+premises:
+pt: R (0, 0, t), S (0, 0, t), T (0, 0, t)
+seg: RS RT ST
+tri: t_RST t_RTS
+[g_1] con_seg(RS,RT)
+[g_2] con_ang(a_RST,a_RTS)
+-> con_tri(t_RST,t_RTS)
+
+steps:
+[01] given(g_1) -> con_seg(RS,RT)
+[02] given(g_2) -> con_ang(a_RST,a_RTS)
+[03] reflex_s() -> con_seg(ST,TS)
+[04] sas(1,2,3) -> con_tri(t_RST,t_RTS)

@@ -1,0 +1,17 @@
+// pass
+title: "S4-3C1 - Example 3: Prove Triangles Congruent by SSS"
+premises:
+pt: P (0, 0, t), Q (0, 0, t), R (0, 0, t), M (0, 0, t), N (0, 0, t)
+seg: PM PR MR PQ MN QR NR
+tri: t_PQR t_MNR
+[g_1] midpt(PM,R)
+[g_2] con_seg(PQ,MN)
+[g_3] con_seg(QR,NR)
+-> con_tri(t_PQR,t_MNR)
+
+steps:
+[01] given(g_1) -> midpt(PM,R)
+[02] def_midpt(1) -> con_seg(PR,MR)
+[03] given(g_2) -> con_seg(PQ,MN)
+[04] given(g_3) -> con_seg(QR,NR)
+[05] sss(2,3,4) -> con_tri(t_PQR,t_MNR)

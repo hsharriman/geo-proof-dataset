@@ -1,0 +1,15 @@
+// pass
+title: "S4-4C1 - Check It Out 2: Prove Triangles Congruent by SAS"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t)
+seg: BA BD BC
+tri: t_ABC t_DBC
+[g_1] con_seg(BA,BD)
+[g_2] con_ang(a_ABC,a_DBC)
+-> con_tri(t_ABC,t_DBC)
+
+steps:
+[01] given(g_1) -> con_seg(BA,BD)
+[02] given(g_2) -> con_ang(a_ABC,a_DBC)
+[03] reflex_s() -> con_seg(BC,BC)
+[04] sas(1,2,3) -> con_tri(t_ABC,t_DBC)

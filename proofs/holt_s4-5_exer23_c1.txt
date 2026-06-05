@@ -1,0 +1,19 @@
+// pass
+title: "S4-5C1 - Exercise 23: Prove Hypotenuse-Angle Theorem"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: KM JL JM LM
+tri: t_JKM t_LKM
+[g_1] right(a_JKM)
+[g_2] right(a_LKM)
+[g_3] con_seg(JM,LM)
+[g_4] con_ang(a_JMK,a_LMK)
+-> con_tri(t_JKM,t_LKM)
+
+steps:
+[01] given(g_1) -> right(a_JKM)
+[02] given(g_2) -> right(a_LKM)
+[03] def_con_right(1,2) -> con_right(a_JKM,a_LKM)
+[04] given(g_4) -> con_ang(a_JMK,a_LMK)
+[05] given(g_3) -> con_seg(JM,LM)
+[06] aas(3,4,5) -> con_tri(t_JKM,t_LKM)

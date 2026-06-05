@@ -1,0 +1,15 @@
+// pass
+title: "S4-4C1 - Check It Out 1: Prove Triangles Congruent by SSS"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t)
+seg: AB CD BC DA AC
+tri: t_ABC t_CDA
+[g_1] con_seg(AB,CD)
+[g_2] con_seg(BC,DA)
+-> con_tri(t_ABC,t_CDA)
+
+steps:
+[01] given(g_1) -> con_seg(AB,CD)
+[02] given(g_2) -> con_seg(BC,DA)
+[03] reflex_s() -> con_seg(AC,AC)
+[04] sss(1,2,3) -> con_tri(t_ABC,t_CDA)

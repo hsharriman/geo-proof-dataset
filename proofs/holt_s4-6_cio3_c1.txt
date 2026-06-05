@@ -1,0 +1,21 @@
+// pass
+title: "S4-6C1 - Check It Out 3: Prove Segments Parallel"
+premises:
+pt: K (0, 0, t), J (0, 0, t), M (0, 0, t), N (0, 0, t), L (0, 0, t)
+seg: KM NL KJ MJ NJ LJ KL LK MN NM
+tri: t_KJL t_MJN
+[d_01] intersect_seg(KM,NL,J)
+[d_02] transversal(L,K,M,K,M,N,K,M)
+[g_1] midpt(KM,J)
+[g_2] midpt(NL,J)
+-> para(KL,MN)
+
+steps:
+[01] given(g_1) -> midpt(KM,J)
+[02] given(g_2) -> midpt(NL,J)
+[03] def_midpt(1) -> con_seg(KJ,MJ)
+[04] def_midpt(2) -> con_seg(NJ,LJ)
+[05] vert_ang() -> con_ang(a_KJL,a_MJN)
+[06] sas(3,5,4) -> con_tri(t_KJL,t_MJN)
+[07] cpctc(6) -> con_ang(a_LKJ,a_NMJ)
+[08] altint_conv(7) -> para(KL,MN)

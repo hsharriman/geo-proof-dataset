@@ -1,0 +1,16 @@
+// pass
+title: "S4-6C1 - Exercise 9: Prove Angles Congruent"
+premises:
+pt: W (0, 0, t), X (0, 0, t), Y (0, 0, t), Z (0, 0, t)
+seg: WX XY YZ ZW ZX
+tri: t_WXZ t_YZX
+[g_1] con_seg(WX,XY)
+[g_2] con_seg(YZ,ZW)
+-> con_ang(a_XWZ,a_XYZ)
+
+steps:
+[01] given(g_1) -> con_seg(WX,XY)
+[02] given(g_2) -> con_seg(YZ,ZW)
+[03] reflex_s() -> con_seg(ZX,ZX)
+[04] sss(1,2,3) -> con_tri(t_WXZ,t_YZX)
+[05] cpctc(4) -> con_ang(a_XWZ,a_XYZ)

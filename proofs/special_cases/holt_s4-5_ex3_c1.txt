@@ -1,0 +1,20 @@
+// pass
+title: "S4-5C1 - Example 3: Prove Triangles Congruent by AAS"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t)
+seg: AB DE BC DC BD AE
+tri: t_ABC t_EDC
+[d_01] on_line(BD,C)
+[d_02] on_line(AE,C)
+[d_03] transversal(A,B,D,B,D,E,B,D)
+[d_04] transversal(A,B,E,A,D,E,A,E)
+[g_1] para(AB,DE)
+[g_2] con_seg(BC,DC)
+-> con_tri(t_ABC,t_EDC)
+
+steps:
+[01] given(g_1) -> para(AB,DE)
+[02] altint(1,d_03) -> con_ang(a_ABD,a_EDB)
+[03] altint(1,d_04) -> con_ang(a_BAE,a_DEA)
+[04] given(g_2) -> con_seg(BC,DC)
+[05] aas(2,3,4) -> con_tri(t_ABC,t_EDC)

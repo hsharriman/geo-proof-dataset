@@ -1,0 +1,15 @@
+// pass
+title: "S4-4C1 - Exercise 7: Prove Triangles Congruent by SAS"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JK ML KL LK
+tri: t_JKL t_MLK
+[g_1] con_seg(JK,ML)
+[g_2] con_ang(a_JKL,a_MLK)
+-> con_tri(t_JKL,t_MLK)
+
+steps:
+[01] given(g_1) -> con_seg(JK,ML)
+[02] given(g_2) -> con_ang(a_JKL,a_MLK)
+[03] reflex_s() -> con_seg(KL,KL)
+[04] sas(1,2,3) -> con_tri(t_JKL,t_MLK)

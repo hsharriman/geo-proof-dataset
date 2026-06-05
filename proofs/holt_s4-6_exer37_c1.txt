@@ -1,0 +1,16 @@
+// pass
+title: "S4-6C1 - Exercise 37: Prove Triangles Congruent by ASA"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t)
+seg: AE BD BC DC
+tri: t_ABC t_EDC
+[d_01] intersect_seg(AE,BD,C)
+[g_1] con_ang(a_ABC,a_EDC)
+[g_2] con_seg(BC,DC)
+-> con_tri(t_ABC,t_EDC)
+
+steps:
+[01] given(g_1) -> con_ang(a_ABC,a_EDC)
+[02] given(g_2) -> con_seg(BC,DC)
+[03] vert_ang() -> con_ang(a_BCA,a_DCE)
+[04] asa(1,2,3) -> con_tri(t_ABC,t_EDC)

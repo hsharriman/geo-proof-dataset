@@ -1,0 +1,17 @@
+// pass
+title: "S4-3C1 - Check It Out 3: Prove Triangles Congruent by SAS"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t)
+seg: AB DE AD BE AC DC BC EC
+tri: t_ABC t_DEC
+[g_1] con_ang(a_BAC,a_EDC)
+[g_2] con_seg(AB,DE)
+[g_3] midpt(AD,C)
+-> con_tri(t_ABC,t_DEC)
+
+steps:
+[01] given(g_1) -> con_ang(a_BAC,a_EDC)
+[02] given(g_2) -> con_seg(AB,DE)
+[03] given(g_3) -> midpt(AD,C)
+[04] def_midpt(3) -> con_seg(AC,DC)
+[05] sas(2,1,4) -> con_tri(t_ABC,t_DEC)

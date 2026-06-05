@@ -1,0 +1,16 @@
+// pass
+title: "S4-3C1 - Exercise 27: Prove Triangles Congruent by SSS"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t)
+seg: AC AD CD AB CB BD
+tri: t_ABD t_CBD
+[g_1] midpt(AC,D)
+[g_2] con_seg(AB,CB)
+-> con_tri(t_ABD,t_CBD)
+
+steps:
+[01] given(g_1) -> midpt(AC,D)
+[02] def_midpt(1) -> con_seg(AD,CD)
+[03] given(g_2) -> con_seg(AB,CB)
+[04] reflex_s() -> con_seg(BD,BD)
+[05] sss(2,3,4) -> con_tri(t_ABD,t_CBD)

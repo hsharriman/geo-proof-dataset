@@ -1,0 +1,12 @@
+// pass
+title: "S4-8C1 - Exercise 39: Prove Triangle Is Isosceles"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t)
+seg: AB CB
+tri: t_ABC
+[g_1] con_seg(AB,CB)
+-> isosceles(t_ABC)
+
+steps:
+[01] given(g_1) -> con_seg(AB,CB)
+[02] def_isosceles(1) -> isosceles(t_ABC)

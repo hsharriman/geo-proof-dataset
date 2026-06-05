@@ -1,0 +1,19 @@
+// pass
+title: "S4-5C1 - Exercise 33: Prove Leg-Angle Theorem"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t), F (0, 0, t)
+seg: AC DF
+tri: t_ABC t_DEF
+[g_1] right(a_ACB)
+[g_2] right(a_DFE)
+[g_3] con_seg(AC,DF)
+[g_4] con_ang(a_CAB,a_FDE)
+-> con_tri(t_ABC,t_DEF)
+
+steps:
+[01] given(g_1) -> right(a_ACB)
+[02] given(g_2) -> right(a_DFE)
+[03] def_con_right(1,2) -> con_right(a_ACB,a_DFE)
+[04] given(g_3) -> con_seg(AC,DF)
+[05] given(g_4) -> con_ang(a_CAB,a_FDE)
+[06] asa(5,4,3) -> con_tri(t_ABC,t_DEF)

@@ -1,0 +1,15 @@
+// pass
+title: "S4-3C1 - Example 4: Prove Triangles Congruent by SSS"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JK ML JL MK KL
+tri: t_JKL t_MLK
+[g_1] con_seg(JK,ML)
+[g_2] con_seg(JL,MK)
+-> con_tri(t_JKL,t_MLK)
+
+steps:
+[01] given(g_1) -> con_seg(JK,ML)
+[02] given(g_2) -> con_seg(JL,MK)
+[03] reflex_s() -> con_seg(KL,KL)
+[04] sss(1,2,3) -> con_tri(t_JKL,t_MLK)

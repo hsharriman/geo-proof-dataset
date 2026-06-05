@@ -1,0 +1,15 @@
+// pass
+title: "S4-4C1 - Exercise 9: Prove Triangles Congruent by SSS"
+premises:
+pt: G (0, 0, t), J (0, 0, t), K (0, 0, t), L (0, 0, t)
+seg: KJ LJ GK GL GJ
+tri: t_GJK t_GJL
+[g_1] con_seg(KJ,LJ)
+[g_2] con_seg(GK,GL)
+-> con_tri(t_GJK,t_GJL)
+
+steps:
+[01] given(g_1) -> con_seg(KJ,LJ)
+[02] given(g_2) -> con_seg(GK,GL)
+[03] reflex_s() -> con_seg(GJ,GJ)
+[04] sss(1,2,3) -> con_tri(t_GJK,t_GJL)

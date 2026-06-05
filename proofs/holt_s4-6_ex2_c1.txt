@@ -1,0 +1,16 @@
+// pass
+title: "S4-6C1 - Example 2: Prove Corresponding Angles Congruent"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t)
+seg: AB DC BC
+tri: t_ABC t_DCB
+[g_1] con_seg(AB,DC)
+[g_2] con_ang(a_ABC,a_DCB)
+-> con_ang(a_BAC,a_CDB)
+
+steps:
+[01] given(g_1) -> con_seg(AB,DC)
+[02] given(g_2) -> con_ang(a_ABC,a_DCB)
+[03] reflex_s() -> con_seg(BC,BC)
+[04] sas(1,2,3) -> con_tri(t_ABC,t_DCB)
+[05] cpctc(4) -> con_ang(a_BAC,a_CDB)
