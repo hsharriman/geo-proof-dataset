@@ -5,6 +5,7 @@ from combine_geometry import (
     get_distinct_points,
     rescale_points,
     align_points,
+    get_all_intersection_points,
 )
 
 
@@ -48,6 +49,10 @@ def extract_coordinates(IMAGE_PATH):
     # get points from lines
     points = combined_lines.reshape(-1, 4)[:, :2].tolist()
     points.extend(combined_lines.reshape(-1, 4)[:, 2:4].tolist())
+
+    # add intersection points
+    intersection_points = get_all_intersection_points(combined_lines)
+    points.extend(intersection_points)
 
     # get distinct points
     distinct_points = get_distinct_points(points, threshold=60)

@@ -168,7 +168,7 @@ def rescale_points(points_list):
     return [(p[0], p[1]) for p in rescaled_points], scale
 
 
-def align_points(points, tolerance=1):
+def align_points(points, tolerance=1):  # TODO: fix align points logic
     if not points:
         return []
 
@@ -225,3 +225,78 @@ def force_align_points(points, tolerance=1.5):
         aligned_points[:, axis_idx] = np.round(aligned_points[:, axis_idx])
 
     return aligned_points.tolist()
+
+
+def _get_intersection_point(line1, line2, tolerance=15):
+    """
+    Finds the intersection point of two line segments if it falls
+    within the bounds of both segments (plus a small pixel tolerance).
+    """
+    x1, y1, x2, y2 = line1
+    x3, y3, x4, y4 = line2
+
+    # Determinant formulas for line-line intersection
+    denom = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+
+    # If denominator is 0, lines are parallel
+    if abs(denom) < 1e-6:
+        return None
+
+    # Calculate exact intersection point (px, py)
+    t_num = (x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)
+    t = t_num / denom
+
+    px = x1 + t * (x2 - x1)
+    py = y1 + t * (y2 - y1)
+
+    # Segment boundary check: Ensure the intersection is on BOTH segments
+    # We include a small tolerance margin because lines might not perfectly touch
+    on_segment1 = (
+        min(x1, x2) - tolerance <= px <= max(x1, x2) + tolerance
+        and min(y1, y2) - tolerance <= py <= max(y1, y2) + tolerance
+    )
+
+    on_segment2 = (
+        min(x3, x4) - tolerance <= px <= max(x3, x4) + tolerance
+        and min(y3, y4) - tolerance <= py <= max(y3, y4) + tolerance
+    )
+
+    if on_segment1 and on_segment2:
+        return [int(px), int(py)]
+
+    return None
+
+
+def get_all_intersection_points(all_lines, distance_threshold=15.0):
+    intersection_points = []
+
+    # Double loop to check every line combination exactly once
+    for idx, line1 in enumerate(all_lines):
+        for line2 in all_lines[idx + 1 :]:
+            point = _get_intersection_point(line1, line2)
+            if point is not None:
+                intersection_points.append(point)
+
+    # Convert to a clean NumPy array and remove any exact duplicate points
+    intersection_points = np.array(intersection_points)
+
+    # Merge points that are below your distance threshold
+    if len(intersection_points) > 0:
+        filtered_points = []
+
+        for point in intersection_points:
+            # Check if this point is close to any point we've already saved
+            is_duplicate = False
+            for saved_point in filtered_points:
+                if distance_between_points(point, saved_point) < distance_threshold:
+                    is_duplicate = True
+                    break  # Stop checking, we found a close neighbor
+
+            # If it's not close to any existing saved point, keep it
+            if not is_duplicate:
+                filtered_points.append(point)
+
+        intersection_points = np.array(filtered_points)
+
+    print(f"Found {len(intersection_points)} valid segment intersection points:")
+    return intersection_points
