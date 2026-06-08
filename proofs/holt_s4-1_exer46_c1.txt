@@ -1,0 +1,16 @@
+// pass
+title: "S4-1C1 - Exercise 46: Prove Triangle Equiangular"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), E (0, 0, t), F (0, 0, t)
+seg: EF AC EB FB
+tri: t_ABC t_EFB
+[g_1] con_ang(a_EFB,a_EBF)
+[g_2] con_ang(a_EBF,a_FEB)
+[g_3] con_ang(a_FEB,a_EFB)
+-> equiangular(t_EFB)
+
+steps:
+[01] given(g_1) -> con_ang(a_EFB,a_EBF)
+[02] given(g_2) -> con_ang(a_EBF,a_FEB)
+[03] given(g_3) -> con_ang(a_FEB,a_EFB)
+[04] def_equiangular(1,2,3) -> equiangular(t_EFB)

@@ -1,0 +1,12 @@
+// pass
+title: "S4-8C1 - Exercise 35: Prove Converse Isosceles Triangle Theorem"
+premises:
+pt: D (0, 0, t), E (0, 0, t), F (0, 0, t)
+seg: DE DF EF
+tri: t_DEF
+[g_1] con_ang(a_DEF,a_EFD)
+-> con_seg(DE,DF)
+
+steps:
+[01] given(g_1) -> con_ang(a_DEF,a_EFD)
+[02] base_angle_conv(1) -> con_seg(DE,DF)
