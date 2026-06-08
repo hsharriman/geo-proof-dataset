@@ -9,4 +9,4 @@ tri: t_DEF
 
 steps:
 [01] given(g_1) -> equiangular(t_DEF)
-[02] equilang_equilat(1) -> equilateral(t_DEF)
+[02] equilat_equiang(1) -> equilateral(t_DEF)

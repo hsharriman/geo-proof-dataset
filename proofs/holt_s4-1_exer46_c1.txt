@@ -13,4 +13,4 @@ steps:
 [01] given(g_1) -> con_ang(a_EFB,a_EBF)
 [02] given(g_2) -> con_ang(a_EBF,a_FEB)
 [03] given(g_3) -> con_ang(a_FEB,a_EFB)
-[04] def_equilangular(1,2,3) -> equiangular(t_EFB)
+[04] def_equiangular(1,2,3) -> equiangular(t_EFB)
