@@ -1,0 +1,13 @@
+// pass
+title: "S4-2C1 - Exercise 27: Prove Third Angles Theorem"
+premises:
+pt: L (0, 0, t), M (0, 0, t), N (0, 0, t), R (0, 0, t), S (0, 0, t), T (0, 0, t)
+tri: t_LMN t_RST
+[g_1] con_ang(a_LMN,a_RST)
+[g_2] con_ang(a_MLN,a_SRT)
+-> con_ang(a_LNM,a_RTS)
+
+steps:
+[01] given(g_1) -> con_ang(a_LMN,a_RST)
+[02] given(g_2) -> con_ang(a_MLN,a_SRT)
+[03] third_angle(1,2) -> con_ang(a_LNM,a_RTS)

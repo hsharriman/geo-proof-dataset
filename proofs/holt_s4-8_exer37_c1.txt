@@ -1,0 +1,12 @@
+// pass
+title: "S4-8C1 - Exercise 37: Prove Corollary 4-8-4"
+premises:
+pt: D (0, 0, t), E (0, 0, t), F (0, 0, t)
+seg: DE DF EF
+tri: t_DEF
+[g_1] equiangular(t_DEF)
+-> equilateral(t_DEF)
+
+steps:
+[01] given(g_1) -> equiangular(t_DEF)
+[02] equilang_equilat(1) -> equilateral(t_DEF)

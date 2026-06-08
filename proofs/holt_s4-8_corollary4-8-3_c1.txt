@@ -1,0 +1,12 @@
+// pass
+title: "S4-8C1 - Corollary 4-8-3: Equilateral Triangle"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t)
+seg: AB AC BC
+tri: t_ABC
+[g_1] equilateral(t_ABC)
+-> equiangular(t_ABC)
+
+steps:
+[01] given(g_1) -> equilateral(t_ABC)
+[02] equilat_equilang(1) -> equiangular(t_ABC)
