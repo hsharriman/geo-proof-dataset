@@ -1,4 +1,5 @@
 import numpy as np
+import cv2
 
 
 def distance_between_points(p1, p2):
@@ -299,4 +300,182 @@ def get_all_intersection_points(all_lines, distance_threshold=15.0):
         intersection_points = np.array(filtered_points)
 
     print(f"Found {len(intersection_points)} valid segment intersection points:")
+    return intersection_points
+
+
+def mask_circles(binary_img, circles):
+    perimeter_mask = np.zeros_like(binary_img)
+
+    if circles is not None:
+        circles = np.uint16(np.around(circles))
+        for i in circles[0, :]:
+            center_x, center_y, radius = i[0], i[1], i[2]
+
+            stroke_thickness = 12
+            cv2.circle(
+                perimeter_mask,
+                (center_x, center_y),
+                radius,
+                255,
+                thickness=stroke_thickness,
+            )
+
+    inverse_mask = cv2.bitwise_not(perimeter_mask)
+
+    cleaned_binary = cv2.bitwise_and(binary_img, binary_img, mask=inverse_mask)
+
+    return cleaned_binary
+
+
+def _get_tangency_point(circle, line, threshold=5.0):
+    cx, cy, r = circle
+    x1, y1, x2, y2 = line
+
+    dx = x2 - x1
+    dy = y2 - y1
+
+    # Calculate the squared length of the line segment
+    line_lensq = dx**2 + dy**2
+    if line_lensq < 1e-6:
+        return None  # Invalid line segment (zero length)
+
+    # Project the circle's center onto the infinite line.
+    # We find the scalar 't' that minimizes the distance to (cx, cy)
+    t = ((cx - x1) * dx + (cy - y1) * dy) / line_lensq
+
+    # Calculate the exact coordinates of the closest point on the line
+    tx = x1 + t * dx
+    ty = y1 + t * dy
+
+    # Verify it is actually a tangent line.
+    # The distance from the center to this point should roughly equal the radius.
+    dist_to_center = np.hypot(tx - cx, ty - cy)
+
+    # Allowing a small pixel threshold for image noise/discrete coordinates
+    if abs(dist_to_center - r) > threshold:
+        print(
+            f"Warning: Line is not perfectly tangent. Distance to center is {dist_to_center:.2f}, expected radius {r}"
+        )
+
+    return [int(round(tx)), int(round(ty))]
+
+
+def get_all_tangency_points(lines, circles, segment_padding_px=20.0):
+    if lines is None or len(lines) == 0 or circles is None or len(circles) == 0:
+        return np.empty((0, 2))
+
+    # Clean the structures to 2D arrays
+    clean_lines = np.array(lines).reshape(-1, 4)
+    clean_circles = np.array(circles).reshape(-1, 3)
+
+    all_tangent_points = []
+
+    # Loop through every circle detected
+    for circle in clean_circles:
+        # Loop through every line detected
+        for line in clean_lines:
+
+            # Use your pre-defined function to find the mathematical tangent point
+            pt = _get_tangency_point(circle, line)
+
+            # If a valid tangent point is found, verify it rests on the actual segment
+            if pt is not None:
+                tx, ty = pt
+                x1, y1, x2, y2 = line
+
+                # Check bounding box limits with a padding margin
+                # (in case the Hough line stops just short of touching the circle)
+                within_segment = (
+                    min(x1, x2) - segment_padding_px
+                    <= tx
+                    <= max(x1, x2) + segment_padding_px
+                ) and (
+                    min(y1, y2) - segment_padding_px
+                    <= ty
+                    <= max(y1, y2) + segment_padding_px
+                )
+
+                if within_segment:
+                    all_tangent_points.append([tx, ty])
+
+    # Convert to NumPy array and strip exact spatial duplicates
+    all_tangent_points = np.array(all_tangent_points)
+    if len(all_tangent_points) > 0:
+        all_tangent_points = np.unique(all_tangent_points, axis=0)
+
+    return all_tangent_points
+
+
+def get_line_circle_intersection_points(lines, circles, threshold=5.0):
+    if lines is None or len(lines) == 0 or circles is None or len(circles) == 0:
+        return np.empty((0, 2))
+
+    clean_lines = np.array(lines).reshape(-1, 4)
+    clean_circles = np.array(circles).reshape(-1, 3)
+
+    intersection_points = []
+
+    for circle in clean_circles:
+        cx, cy, r = circle
+        # Account for pixel noise by giving the radius a tiny buffer
+        effective_radius = r + threshold
+
+        for line in clean_lines:
+            x1, y1, x2, y2 = line
+
+            dx = x2 - x1
+            dy = y2 - y1
+            line_lensq = dx**2 + dy**2
+            if line_lensq < 1e-6:
+                continue
+
+            # Project circle center onto the infinite line to find the closest point
+            t = ((cx - x1) * dx + (cy - y1) * dy) / line_lensq
+
+            # Clamp 't' between 0 and 1 to keep the point strictly ON the line segment
+            t_clamped = max(0.0, min(1.0, t))
+            closest_x = x1 + t_clamped * dx
+            closest_y = y1 + t_clamped * dy
+
+            # Perpendicular distance from circle center to the closest point on the segment
+            dist_to_center = np.hypot(closest_x - cx, closest_y - cy)
+
+            if dist_to_center > effective_radius:
+                continue
+
+            # Calculate the intersection points using the chord half-length
+            # (Pythagorean theorem: half_chord^2 + dist_to_center^2 = radius^2)
+            half_chord = np.sqrt(max(0.0, effective_radius**2 - dist_to_center**2))
+
+            # Unit direction vectors of the line
+            line_len = np.sqrt(line_lensq)
+            ux = dx / line_len
+            uy = dy / line_len
+
+            # Compute the two intersection points along the trajectory
+            # If the closest point was clamped to an endpoint, we base our offset there
+            pt1 = [
+                int(round(closest_x + ux * half_chord)),
+                int(round(closest_y + uy * half_chord)),
+            ]
+            pt2 = [
+                int(round(closest_x - ux * half_chord)),
+                int(round(closest_y - uy * half_chord)),
+            ]
+
+            # Double check that the final calculated points are reasonably on the segment
+            for pt in [pt1, pt2]:
+                # Quick bounding box validation with a small margin
+                margin = 5
+                if (
+                    min(x1, x2) - margin <= pt[0] <= max(x1, x2) + margin
+                    and min(y1, y2) - margin <= pt[1] <= max(y1, y2) + margin
+                ):
+                    intersection_points.append(pt)
+
+    # Convert to NumPy array and remove duplicate coordinates
+    intersection_points = np.array(intersection_points)
+    if len(intersection_points) > 0:
+        intersection_points = np.unique(intersection_points, axis=0)
+
     return intersection_points

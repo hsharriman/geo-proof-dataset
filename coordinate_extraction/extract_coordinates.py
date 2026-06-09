@@ -1,11 +1,14 @@
 import cv2
 import numpy as np
 from combine_geometry import (
+    mask_circles,
     combine_lines,
     get_distinct_points,
     rescale_points,
     align_points,
     get_all_intersection_points,
+    get_all_tangency_points,
+    get_line_circle_intersection_points,
 )
 
 
@@ -25,23 +28,47 @@ def _preprocess_image(IMAGE_PATH):
 
     # preprocess image
     img_gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
-    _, img_binary = cv2.threshold(img_gray, 127, 255, cv2.THRESH_BINARY_INV)
+    img_blur = cv2.GaussianBlur(img_gray, (5, 5), 0)
+    _, img_binary = cv2.threshold(img_blur, 127, 255, cv2.THRESH_BINARY_INV)
 
-    return img_binary
+    return img_blur, img_binary
 
 
 def extract_coordinates(IMAGE_PATH):
-    img_binary = _preprocess_image(IMAGE_PATH)
+    img_blur, img_binary = _preprocess_image(IMAGE_PATH)
 
-    # extract lines
-    lines = cv2.HoughLinesP(
-        img_binary,
-        rho=1,
-        theta=np.pi / 180,
-        threshold=100,
-        minLineLength=100,
-        maxLineGap=0,
+    # extract circles and lines
+    circles = cv2.HoughCircles(
+        img_blur,
+        cv2.HOUGH_GRADIENT,
+        dp=1,
+        minDist=200,
+        param1=100,
+        param2=50,
+        minRadius=100,
+        maxRadius=500,
     )
+
+    if circles is not None:
+        cleaned_binary = mask_circles(img_binary, circles)
+        lines = cv2.HoughLinesP(
+            cleaned_binary,
+            rho=1,
+            theta=np.pi / 180,
+            threshold=250,
+            minLineLength=100,
+            maxLineGap=0,
+        )
+
+    else:
+        lines = cv2.HoughLinesP(
+            img_binary,
+            rho=1,
+            theta=np.pi / 180,
+            threshold=100,
+            minLineLength=100,
+            maxLineGap=0,
+        )
 
     # combine lines
     combined_lines = combine_lines(lines)
@@ -54,11 +81,28 @@ def extract_coordinates(IMAGE_PATH):
     intersection_points = get_all_intersection_points(combined_lines)
     points.extend(intersection_points)
 
+    # points from circle & tangency
+    if circles is not None:
+        circle_center_points = np.array(circles, dtype=np.float32).reshape(-1, 3)[:, :2]
+        points.extend(circle_center_points)
+        tangency_points = get_all_tangency_points(  # TODO: fix tangency logic
+            combined_lines, circles, segment_padding_px=5
+        )
+        points.extend(tangency_points)
+        circle_intersection_points = get_line_circle_intersection_points(
+            combined_lines, circles, threshold=-10
+        )
+        points.extend(circle_intersection_points)
+
     # get distinct points
     distinct_points = get_distinct_points(points, threshold=60)
 
     # rescale and align points
     rescaled_points = rescale_points(distinct_points)[0]
-    aligned_points = align_points(rescaled_points)
+    # aligned_points = align_points(rescaled_points) # TODO: Fix alignment logic
 
-    return aligned_points
+    return rescaled_points
+
+
+points = extract_coordinates("diagram_sample_image/circle1.jpg")
+print(len(points))
