@@ -1,0 +1,15 @@
+// pass
+title: "S2-6 Exercise 7 - Prove Congruent Supplements"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t), F (0, 0, t), G (0, 0, t)
+seg: AB BC CD BD DE EF FG
+[g_1] supplementary(a_ABC,a_CBD)
+[g_2] supplementary(a_DEF,a_EFG)
+[g_3] con_ang(a_CBD,a_DEF)
+-> con_ang(a_ABC,a_EFG)
+
+steps:
+[01] given(g_1) -> supplementary(a_ABC,a_CBD)
+[02] given(g_2) -> supplementary(a_DEF,a_EFG)
+[03] given(g_3) -> con_ang(a_CBD,a_DEF)
+[04] con_supplements(1,2,3) -> con_ang(a_ABC,a_EFG)

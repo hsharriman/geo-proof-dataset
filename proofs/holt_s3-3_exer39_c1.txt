@@ -1,0 +1,12 @@
+// pass
+title: "S3-3 - Exercise 39: Prove Converse of Same-Side Interior Angles Theorem"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t), F (0, 0, t)
+seg: AB CD EF AE BE CF DF
+[d_01] transversal(A, B, E, E, C, D, F, F)
+[g_1] supplementary(a_AEF,a_CFE)
+-> para(AB,CD)
+
+steps:
+[01] given(g_1) -> supplementary(a_AEF,a_CFE)
+[02] sameside_ang_conv(1) -> para(AB,CD)
