@@ -9,6 +9,8 @@ from combine_geometry import (
     get_all_intersection_points,
     get_all_tangency_points,
     get_line_circle_intersection_points,
+    get_all_points_on_lines,
+    get_all_points_on_circles,
 )
 
 
@@ -37,6 +39,17 @@ def _preprocess_image(IMAGE_PATH):
 def extract_coordinates(IMAGE_PATH):
     img_blur, img_binary = _preprocess_image(IMAGE_PATH)
 
+    dots = cv2.HoughCircles(
+        img_blur,
+        cv2.HOUGH_GRADIENT,
+        dp=1,
+        minDist=100,
+        param1=100,
+        param2=15,
+        minRadius=15,
+        maxRadius=30,
+    )
+
     # extract circles and lines
     circles = cv2.HoughCircles(
         img_blur,
@@ -50,6 +63,9 @@ def extract_coordinates(IMAGE_PATH):
     )
 
     if circles is not None:
+        if dots is not None:
+            points_on_circles = get_all_points_on_circles(dots, circles, 5)
+
         cleaned_binary = mask_circles(img_binary, circles)
         lines = cv2.HoughLinesP(
             cleaned_binary,
@@ -81,8 +97,14 @@ def extract_coordinates(IMAGE_PATH):
     intersection_points = get_all_intersection_points(combined_lines)
     points.extend(intersection_points)
 
+    # points on line
+    if dots is not None:
+        points_on_lines = get_all_points_on_lines(dots, combined_lines, 5)
+        points.extend(points_on_lines)
+
     # points from circle & tangency
     if circles is not None:
+        points.extend(points_on_circles)
         circle_center_points = np.array(circles, dtype=np.float32).reshape(-1, 3)[:, :2]
         points.extend(circle_center_points)
         tangency_points = get_all_tangency_points(combined_lines, circles)
@@ -100,3 +122,9 @@ def extract_coordinates(IMAGE_PATH):
     # aligned_points = align_points(rescaled_points) # TODO: Fix alignment logic
 
     return rescaled_points
+
+
+if __name__ == "__main__":
+    selected_image = input("Please select your image: ")
+    points = extract_coordinates(f"diagram_sample_image/{selected_image}.jpg")
+    print(len(points))

@@ -1,3 +1,4 @@
+# TODO: refactor code by defining functions for logics used multiple times
 import numpy as np
 import cv2
 
@@ -299,7 +300,6 @@ def get_all_intersection_points(all_lines, distance_threshold=15.0):
 
         intersection_points = np.array(filtered_points)
 
-    print(f"Found {len(intersection_points)} valid segment intersection points:")
     return intersection_points
 
 
@@ -402,7 +402,7 @@ def get_line_circle_intersection_points(lines, circles, threshold=5.0):
         # Account for pixel noise by giving the radius a tiny buffer
         effective_radius = (
             r + threshold
-        )  # TODO: change threshold logic so that it would return actual coordinate after checking threshold
+        )  # TODO: change threshold logic so that it would return actual coordinate after checking threshold (circle8 example)
 
         for line in clean_lines:
             x1, y1, x2, y2 = line
@@ -463,3 +463,81 @@ def get_line_circle_intersection_points(lines, circles, threshold=5.0):
         intersection_points = np.unique(intersection_points, axis=0)
 
     return intersection_points
+
+
+def _point_on_circle(point, circle, threshold):
+    px, py = point
+    cx, cy, r = circle
+
+    dist_to_center = np.sqrt((px - cx) ** 2 + (py - cy) ** 2)
+
+    if abs(dist_to_center - r) <= threshold:
+        return True
+    return False
+
+
+def get_all_points_on_circles(points, circles, threshold=10.0):
+    if points is None or len(points) == 0 or circles is None or len(circles) == 0:
+        return np.empty((0, 2))
+
+    clean_points = points.reshape(-1, 3)[:, :2]
+    clean_circles = circles.reshape(-1, 3)
+
+    points_on_circles = []
+
+    for point in clean_points:
+        for circle in clean_circles:
+            if _point_on_circle(point, circle, threshold=threshold):
+                points_on_circles.append(point)
+                break  # Found a match for this point, move to the next point
+
+    return points_on_circles
+
+
+def _get_point_on_line(point, line, threshold):
+    px, py = point
+    x1, y1, x2, y2 = line
+
+    dx = x2 - x1
+    dy = y2 - y1
+    line_lensq = dx**2 + dy**2
+
+    if line_lensq < 1e-6:
+        # The line is actually a single point, check distance to that point
+        return np.hypot(px - x1, py - y1) <= threshold
+
+    # 1. Calculate the projection scalar 't' along the infinite line
+    t = ((px - x1) * dx + (py - y1) * dy) / line_lensq
+
+    # 2. Clamp 't' to keep it strictly within the finite line segment bounds
+    t_clamped = max(0.0, min(1.0, t))
+
+    # 3. Find the coordinates of the closest point on the segment
+    closest_x = x1 + t_clamped * dx
+    closest_y = y1 + t_clamped * dy
+
+    # 4. Calculate distance from the original point to this closest segment point
+    distance = np.hypot(px - closest_x, py - closest_y)
+
+    return distance <= threshold
+
+
+def get_all_points_on_lines(points, lines, threshold=10.0):
+    if points is None or len(points) == 0 or lines is None or len(lines) == 0:
+        return np.empty((0, 2))
+
+    # Standardize inputs to clean 2D arrays
+    clean_points = np.array(points).reshape(-1, 3)[:, :2]
+    clean_lines = np.array(lines).reshape(-1, 4)
+
+    points_on_lines = []
+
+    # Loop through every single point
+    for point in clean_points:
+        # Check it against every detected line segment
+        for line in clean_lines:
+            if _get_point_on_line(point, line, threshold=threshold):
+                points_on_lines.append(point)
+                break  # Found a match for this point, move to the next point
+
+    return np.array(points_on_lines)
