@@ -85,9 +85,7 @@ def extract_coordinates(IMAGE_PATH):
     if circles is not None:
         circle_center_points = np.array(circles, dtype=np.float32).reshape(-1, 3)[:, :2]
         points.extend(circle_center_points)
-        tangency_points = get_all_tangency_points(  # TODO: fix tangency logic
-            combined_lines, circles, segment_padding_px=5
-        )
+        tangency_points = get_all_tangency_points(combined_lines, circles)
         points.extend(tangency_points)
         circle_intersection_points = get_line_circle_intersection_points(
             combined_lines, circles, threshold=-10
@@ -102,7 +100,3 @@ def extract_coordinates(IMAGE_PATH):
     # aligned_points = align_points(rescaled_points) # TODO: Fix alignment logic
 
     return rescaled_points
-
-
-points = extract_coordinates("diagram_sample_image/circle1.jpg")
-print(len(points))

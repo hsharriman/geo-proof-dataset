@@ -327,21 +327,19 @@ def mask_circles(binary_img, circles):
     return cleaned_binary
 
 
-def _get_tangency_point(circle, line, threshold=5.0):
+def _get_tangency_point(circle, line, threshold):
     cx, cy, r = circle
     x1, y1, x2, y2 = line
 
     dx = x2 - x1
     dy = y2 - y1
 
-    # Calculate the squared length of the line segment
-    line_lensq = dx**2 + dy**2
-    if line_lensq < 1e-6:
-        return None  # Invalid line segment (zero length)
-
+    line_length_squared = dx**2 + dy**2
+    if line_length_squared < 1e-6:  # line length is zero
+        return None
     # Project the circle's center onto the infinite line.
-    # We find the scalar 't' that minimizes the distance to (cx, cy)
-    t = ((cx - x1) * dx + (cy - y1) * dy) / line_lensq
+    # Find the scalar 't' that minimizes the distance to (cx, cy)
+    t = ((cx - x1) * dx + (cy - y1) * dy) / line_length_squared
 
     # Calculate the exact coordinates of the closest point on the line
     tx = x1 + t * dx
@@ -350,58 +348,42 @@ def _get_tangency_point(circle, line, threshold=5.0):
     # Verify it is actually a tangent line.
     # The distance from the center to this point should roughly equal the radius.
     dist_to_center = np.hypot(tx - cx, ty - cy)
+    if abs(dist_to_center - r) <= threshold:
+        return [int(round(tx)), int(round(ty))]
 
-    # Allowing a small pixel threshold for image noise/discrete coordinates
-    if abs(dist_to_center - r) > threshold:
-        print(
-            f"Warning: Line is not perfectly tangent. Distance to center is {dist_to_center:.2f}, expected radius {r}"
-        )
-
-    return [int(round(tx)), int(round(ty))]
+    return None
 
 
-def get_all_tangency_points(lines, circles, segment_padding_px=20.0):
+def get_all_tangency_points(lines, circles, threshold=20.0, point_touch_threshold=30.0):
     if lines is None or len(lines) == 0 or circles is None or len(circles) == 0:
         return np.empty((0, 2))
-
-    # Clean the structures to 2D arrays
     clean_lines = np.array(lines).reshape(-1, 4)
     clean_circles = np.array(circles).reshape(-1, 3)
 
     all_tangent_points = []
 
-    # Loop through every circle detected
     for circle in clean_circles:
-        # Loop through every line detected
         for line in clean_lines:
 
             # Use your pre-defined function to find the mathematical tangent point
-            pt = _get_tangency_point(circle, line)
-
-            # If a valid tangent point is found, verify it rests on the actual segment
+            pt = _get_tangency_point(circle, line, threshold=threshold)
             if pt is not None:
                 tx, ty = pt
                 x1, y1, x2, y2 = line
 
-                # Check bounding box limits with a padding margin
-                # (in case the Hough line stops just short of touching the circle)
+                # Check if the point actually touches the circle
                 within_segment = (
-                    min(x1, x2) - segment_padding_px
+                    min(x1, x2) - point_touch_threshold
                     <= tx
-                    <= max(x1, x2) + segment_padding_px
+                    <= max(x1, x2) + point_touch_threshold
                 ) and (
-                    min(y1, y2) - segment_padding_px
+                    min(y1, y2) - point_touch_threshold
                     <= ty
-                    <= max(y1, y2) + segment_padding_px
+                    <= max(y1, y2) + point_touch_threshold
                 )
 
                 if within_segment:
                     all_tangent_points.append([tx, ty])
-
-    # Convert to NumPy array and strip exact spatial duplicates
-    all_tangent_points = np.array(all_tangent_points)
-    if len(all_tangent_points) > 0:
-        all_tangent_points = np.unique(all_tangent_points, axis=0)
 
     return all_tangent_points
 
@@ -418,7 +400,9 @@ def get_line_circle_intersection_points(lines, circles, threshold=5.0):
     for circle in clean_circles:
         cx, cy, r = circle
         # Account for pixel noise by giving the radius a tiny buffer
-        effective_radius = r + threshold
+        effective_radius = (
+            r + threshold
+        )  # TODO: change threshold logic so that it would return actual coordinate after checking threshold
 
         for line in clean_lines:
             x1, y1, x2, y2 = line
