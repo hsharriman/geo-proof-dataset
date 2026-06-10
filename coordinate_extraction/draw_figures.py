@@ -39,7 +39,7 @@ def draw_segments_on_image(image, lines=None, circles=None, points=None):
 
     plt.imshow(cv2.cvtColor(line_img, cv2.COLOR_BGR2RGB))
     plt.title(
-        f"Detected Segments (lines: {len(lines) if lines is not None else 0}, circles: {len(circles[0]) if circles is not None else 0}, points: {len(points) if points is not None else 0} )"
+        f"Detected (lines: {len(lines) if lines is not None else 0}, circles: {len(circles[0]) if circles is not None else 0}, points: {len(points) if points is not None else 0} )"
     )
     plt.axis("off")
     plt.show()
@@ -57,7 +57,6 @@ def plot_points(points, title="No Title Specified"):
     plt.title(title)
     plt.xlabel("X Coordinate")
     plt.ylabel("Y Coordinate")
-    plt.gca().invert_yaxis()  # Invert Y-axis for image coordinates
     plt.grid(True, linestyle="--", alpha=0.6)
     plt.tight_layout()
     plt.show()

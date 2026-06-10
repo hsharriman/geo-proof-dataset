@@ -12,6 +12,7 @@ from combine_geometry import (
     get_all_points_on_lines,
     get_all_points_on_circles,
 )
+from draw_figures import plot_points
 
 
 def _preprocess_image(IMAGE_PATH):
@@ -118,13 +119,18 @@ def extract_coordinates(IMAGE_PATH):
     distinct_points = get_distinct_points(points, threshold=60)
 
     # rescale and align points
-    rescaled_points = rescale_points(distinct_points)[0]
+    rescaled_points, scale = rescale_points(distinct_points)
+    flipped_points = np.array(rescaled_points)
+    flipped_points[:, 1] = img_blur.shape[0] * scale - flipped_points[:, 1]
+
     # aligned_points = align_points(rescaled_points) # TODO: Fix alignment logic
 
-    return rescaled_points
+    return flipped_points
 
 
 if __name__ == "__main__":
     selected_image = input("Please select your image: ")
     points = extract_coordinates(f"diagram_sample_image/{selected_image}.jpg")
-    print(len(points))
+    print("There are ", len(points), "points")
+    print(points)
+    plot_points(points, f"Extracted Coordinates ({len(points)} points)")
