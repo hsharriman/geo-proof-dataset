@@ -1,0 +1,12 @@
+// pass
+title: "S3-2 - Exercise 26: Prove Same-Side Interior Angles Theorem"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t), F (0, 0, t)
+seg: AB CD EF AE BE CF DF
+[d_01] transversal(A, B, E, E, C, D, F, F)
+[g_1] para(AB,CD)
+-> supplementary(a_AEF,a_CFE)
+
+steps:
+[01] given(g_1) -> para(AB,CD)
+[02] sameside_ang(1) -> supplementary(a_AEF,a_CFE)
