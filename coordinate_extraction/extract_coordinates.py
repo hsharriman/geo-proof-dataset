@@ -32,7 +32,7 @@ def _preprocess_image(IMAGE_PATH):
     # preprocess image
     img_gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
     img_blur = cv2.GaussianBlur(img_gray, (5, 5), 0)
-    _, img_binary = cv2.threshold(img_blur, 127, 255, cv2.THRESH_BINARY_INV)
+    _, img_binary = cv2.threshold(img_gray, 50, 100, cv2.THRESH_BINARY_INV)
 
     return img_blur, img_binary
 
