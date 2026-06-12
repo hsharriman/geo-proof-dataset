@@ -1,0 +1,10 @@
+// pass
+title: "S2-7 Example 3 - Prove Vertical Angles Congruent"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t)
+seg: AC BD AE EB CE ED
+[d_1] intersect_seg(AC,BD,E)
+-> con_ang(a_AEB,a_CED)
+
+steps:
+[01] vert_ang(d_1) -> con_ang(a_AEB,a_CED)

@@ -1,0 +1,14 @@
+// pass
+title: "S2-6 Check It Out 3 - Prove Congruent Complements"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t)
+seg: AB BC CD BD
+[g_1] complementary(a_ABC,a_CBD)
+[g_2] complementary(a_CBD,a_DBA)
+-> con_ang(a_ABC,a_DBA)
+
+steps:
+[01] given(g_1) -> complementary(a_ABC,a_CBD)
+[02] given(g_2) -> complementary(a_CBD,a_DBA)
+[03] con_complements_same(1,2) -> con_ang(a_ABC,a_DBA)
+
