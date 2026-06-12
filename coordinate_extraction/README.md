@@ -15,7 +15,11 @@ possible relative_label_positions: t, tr, r, br, b, bl, l, tl
 
 High priority
 
-- [ ] align extracted coordinates with labels
+- [x] align extracted coordinates with labels
+- [ ] fix rescale_points so that if figure is taller than it is wide (i.e.
+      portrait or square aspect ratio), then the visible (x,y) coordinates
+      should be (0->10, 0->10). if figure is wider than it is tall (landscape
+      aspect ratio), then max coordinates should be (0->15, 0->10).
 
 Medium priority
 
@@ -31,12 +35,12 @@ Medium priority
 Low Priority
 
 - [ ] implement other diagram logic extraction
-  - `on_line` (needs logic building)
-  - `intersect_seg`
-  - `traversal` (needs logic building)
-  - `on_circle`
-  - `chord` (currently using secant)
-  - `secant`
-  - `tangent`
+  - [x] `on_line`
+  - [ ] `intersect_seg`
+  - [ ] `traversal` (needs logic building)
+  - [ ] `on_circle`
+  - [ ] `chord` (currently using secant)
+  - [ ] `secant`
+  - [ ] `tangent`
 - [ ] fix `align_points` or `force_align_points` function (currently unused) <--
       needs `on_line` logic
