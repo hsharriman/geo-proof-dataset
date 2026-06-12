@@ -494,7 +494,7 @@ def get_all_points_on_circles(points, circles, threshold=10.0):
     return points_on_circles
 
 
-def _get_point_on_line(point, line, threshold):
+def _check_point_on_line(point, line, threshold):
     px, py = point
     x1, y1, x2, y2 = line
 
@@ -536,8 +536,20 @@ def get_all_points_on_lines(points, lines, threshold=10.0):
     for point in clean_points:
         # Check it against every detected line segment
         for line in clean_lines:
-            if _get_point_on_line(point, line, threshold=threshold):
+            if _check_point_on_line(point, line, threshold=threshold):
                 points_on_lines.append(point)
                 break  # Found a match for this point, move to the next point
 
     return np.array(points_on_lines)
+
+
+def get_on_lines_list(lines, points, threshold=10):
+    on_lines = []
+    for line in lines:
+        for point in points:
+            # not end points
+            if np.all(point == line[:2]) or np.all(point == line[2:]):
+                continue
+            if _check_point_on_line(point, line, threshold):
+                on_lines.append([line, point])
+    return on_lines
