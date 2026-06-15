@@ -1,0 +1,17 @@
+// pass
+title: "S6-2 - Example 4A P1: Use Properties of Parallelograms in a Proof"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t)
+seg: AB BC CD DA BD AC
+tri: t_DAB t_BCD
+quad: q_ABCD
+[g_1] parallelogram(q_ABCD)
+-> con_ang(a_DAB,a_BCD)
+
+steps:
+[01] given(g_1) -> parallelogram(q_ABCD)
+[02] pgram_opp_sides(1) -> con_seg(AB,CD)
+[03] pgram_opp_sides(1) -> con_seg(DA,BC)
+[04] reflex_s() -> con_seg(BD,BD)
+[05] sss(3,2,4) -> con_tri(t_DAB,t_BCD)
+[06] cpctc(5) -> con_ang(a_DAB,a_BCD)
