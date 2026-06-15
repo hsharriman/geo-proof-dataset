@@ -1,0 +1,12 @@
+// pass
+title: "S6-4 - Theorem 6-4-2 Direct: Diagonals of a Rectangle Are Congruent"
+premises:
+pt: E (0, 0, t), F (0, 0, t), G (0, 0, t), H (0, 0, t)
+seg: EF FG GH HE FH GE
+quad: q_EFGH
+[g_1] rectangle(q_EFGH)
+-> con_seg(FH,GE)
+
+steps:
+[01] given(g_1) -> rectangle(q_EFGH)
+[02] rect_diag_con(1) -> con_seg(FH,GE)

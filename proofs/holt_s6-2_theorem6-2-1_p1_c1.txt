@@ -1,0 +1,21 @@
+// pass
+title: "S6-2 - Theorem 6-2-1 P1: Opposite Sides of a Parallelogram Are Congruent"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JK KL LM MJ JL
+tri: t_JKL t_LMJ
+quad: q_JKLM
+[d_01] transversal(J,K,L,J,L,M,J,L)
+[d_02] transversal(K,L,L,J,J,M,J,L)
+[g_1] para(JK,LM)
+[g_2] para(KL,MJ)
+-> con_seg(JK,LM)
+
+steps:
+[01] given(g_1) -> para(JK,LM)
+[02] given(g_2) -> para(KL,MJ)
+[03] altint(1) -> con_ang(a_KJL,a_MLJ)
+[04] altint(2) -> con_ang(a_KLJ,a_MJL)
+[05] reflex_s() -> con_seg(JL,JL)
+[06] asa(3,5,4) -> con_tri(t_JKL,t_LMJ)
+[07] cpctc(6) -> con_seg(JK,LM)

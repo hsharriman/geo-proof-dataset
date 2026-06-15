@@ -1,0 +1,12 @@
+// pass
+title: "S6-6 - Theorem 6-6-2 P1 Direct: One Pair of Opposite Angles of a Kite Are Congruent"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JK KL LM MJ JL
+quad: q_JKLM
+[g_1] kite_premise(q_JKLM,a_JKL,a_JML)
+-> con_ang(a_JKL,a_JML)
+
+steps:
+[01] given(g_1) -> kite_premise(q_JKLM,a_JKL,a_JML)
+[02] kite_opp_con_ang(1) -> con_ang(a_JKL,a_JML)

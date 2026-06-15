@@ -1,0 +1,14 @@
+// pass
+title: "S6-3 - Theorem 6-3-1 Direct: One Pair of Opposite Sides Parallel and Congruent Implies Parallelogram"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JK KL LM MJ JL
+quad: q_JKLM
+[g_1] para(KL,MJ)
+[g_2] con_seg(KL,MJ)
+-> parallelogram(q_JKLM)
+
+steps:
+[01] given(g_1) -> para(KL,MJ)
+[02] given(g_2) -> con_seg(KL,MJ)
+[03] pgram_opp_side_para(2,1) -> parallelogram(q_JKLM)
