@@ -1,0 +1,18 @@
+// pass
+title: "S5-1 - Theorem 5-1-1: Perpendicular Bisector Theorem"
+premises:
+pt: A (0, 0, t), B (0, 0, t), X (0, 0, t), Y (0, 0, t)
+seg: AB AY BY AX BX XY
+tri: t_AYX t_BYX
+[g_1] midpt(AB,Y)
+[g_2] perp(XY,AB,Y)
+-> con_seg(AX,BX)
+
+steps:
+[01] given(g_2) -> perp(XY,AB,Y)
+[02] perp_con_ang(1) -> con_ang(a_AYX,a_BYX)
+[03] given(g_1) -> midpt(AB,Y)
+[04] def_midpt(3) -> con_seg(AY,BY)
+[05] reflex_s() -> con_seg(XY,XY)
+[06] sas(4,2,5) -> con_tri(t_AYX,t_BYX)
+[07] cpctc(6) -> con_seg(AX,BX)
