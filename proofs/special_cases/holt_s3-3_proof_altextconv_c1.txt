@@ -1,0 +1,14 @@
+// pass - transitive congruence
+title: "S3-3 - Proof: Converse of the Alternate Exterior Angles Theorem"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t), F (0, 0, t), G (0, 0, t), H (0, 0, t)
+seg: AB CD GH AE BE CF DF EG EF FH
+[d_01] transversal(A, B, E, G, C, D, F, H)
+[g_1] con_ang(a_AEG,a_DFH)
+-> para(AB,CD)
+
+steps:
+[01] given(g_1) -> con_ang(a_AEG,a_DFH)
+[02] vert_ang() -> con_ang(a_AEG,a_BEF)
+[03] transitive_congruence(2,1) -> con_ang(a_BEF,a_DFH)
+[04] corresp_ang_conv(3) -> para(AB,CD)

@@ -1,0 +1,15 @@
+// pass - transitive congruence
+title: "S2-7 Exercise 5"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t)
+seg: AC BD
+[d_01] intersect_seg(AC,BD,E)
+[g_1] con_ang(a_BEC,a_AED)
+-> con_ang(a_AEB,a_CED)
+
+steps:
+[01] given(g_1) -> con_ang(a_BEC,a_AED)
+[02] vert_ang( ) -> con_ang(a_AEB,a_BEC)
+[03] transitive_congruence(2,1) -> con_ang(a_AEB,a_AED)
+[04] vert_ang( ) -> con_ang(a_AED,a_CED)
+[05] transitive_congruence(3,4) -> con_ang(a_AEB,a_CED)

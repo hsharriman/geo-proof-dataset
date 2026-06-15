@@ -1,0 +1,16 @@
+// pass - transitive congruence
+title: "S3-2 - Exercise 25: Prove Alternate Exterior Angles Theorem"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t), F (0, 0, t), G (0, 0, t), H (0, 0, t)
+seg: AB CD GH AE BE CF DF GE EF FH
+[d_01] intersect_seg(AB,GH,E)
+[d_02] intersect_seg(CD,GH,F)
+[d_03] transversal(A, B, E, G, C, D, F, H)
+[g_1] para(AB,CD)
+-> con_ang(a_AEG,a_DFH)
+
+steps:
+[01] given(g_1) -> para(AB,CD)
+[02] vert_ang() -> con_ang(a_AEG,a_BEF)
+[03] corresp_ang(1) -> con_ang(a_BEF,a_DFH)
+[04] transitive_congruence(2,3) -> con_ang(a_AEG,a_DFH)
