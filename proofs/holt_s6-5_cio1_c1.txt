@@ -1,0 +1,14 @@
+// pass
+title: "S6-5 - Check It Out 1: Verify a Rectangle from a Parallelogram"
+premises:
+pt: W (0, 0, t), X (0, 0, t), Y (0, 0, t), Z (0, 0, t)
+seg: WX XY YZ ZW
+quad: q_WXYZ
+[g_1] parallelogram(q_WXYZ)
+[g_2] right(a_WXY)
+-> rectangle(q_WXYZ)
+
+steps:
+[01] given(g_1) -> parallelogram(q_WXYZ)
+[02] given(g_2) -> right(a_WXY)
+[03] rect_pgram_ang(2,1) -> rectangle(q_WXYZ)

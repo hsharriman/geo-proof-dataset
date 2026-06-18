@@ -1,0 +1,22 @@
+// pass
+title: "S6-5 - Theorem 6-5-5: Diagonal Bisecting Opposite Angles Implies Rhombus"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JK KL LM MJ JL
+tri: t_JKL t_JML
+quad: q_JKLM
+[g_1] parallelogram(q_JKLM)
+[g_2] ang_bisect(a_KJM,JL)
+[g_3] ang_bisect(a_KLM,JL)
+-> rhombus(q_JKLM)
+
+steps:
+[01] given(g_1) -> parallelogram(q_JKLM)
+[02] given(g_2) -> ang_bisect(a_KJM,JL)
+[03] given(g_3) -> ang_bisect(a_KLM,JL)
+[04] def_ang_bisect(2) -> con_ang(a_KJL,a_LJM)
+[05] def_ang_bisect(3) -> con_ang(a_KLJ,a_JLM)
+[06] reflex_s() -> con_seg(LJ,LJ)
+[07] asa(4,6,5) -> con_tri(t_JKL,t_JML)
+[08] cpctc(7) -> con_seg(JK,JM)
+[09] rhombus_consec_sides(1,8) -> rhombus(q_JKLM)

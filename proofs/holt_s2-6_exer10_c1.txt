@@ -1,0 +1,15 @@
+// pass
+title: "S2-6 Exercise 10 - Prove Congruent Complements"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t), F (0, 0, t)
+seg: AB BC CD BD DE EF FD
+[g_1] complementary(a_ABC,a_CBD)
+[g_2] complementary(a_DEF,a_EFD)
+[g_3] con_ang(a_CBD,a_EFD)
+-> con_ang(a_ABC,a_DEF)
+
+steps:
+[01] given(g_1) -> complementary(a_ABC,a_CBD)
+[02] given(g_2) -> complementary(a_DEF,a_EFD)
+[03] given(g_3) -> con_ang(a_CBD,a_EFD)
+[04] con_complements(1,2,3) -> con_ang(a_ABC,a_DEF)

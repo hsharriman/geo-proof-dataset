@@ -1,0 +1,13 @@
+// pass
+title: "S2-6 Check It Out 2 - Prove Congruent Supplements"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t)
+seg: AB BC CD BD
+[g_1] supplementary(a_ABC,a_CBD)
+[g_2] supplementary(a_CBD,a_DBA)
+-> con_ang(a_ABC,a_DBA)
+
+steps:
+[01] given(g_1) -> supplementary(a_ABC,a_CBD)
+[02] given(g_2) -> supplementary(a_CBD,a_DBA)
+[03] con_supplements_same(1,2) -> con_ang(a_ABC,a_DBA)

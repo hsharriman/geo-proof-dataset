@@ -1,0 +1,12 @@
+// pass
+title: "S6-4 - Theorem 6-4-5 P2 Direct: A Rhombus Diagonal Bisects Angle KLM"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JK KL LM MJ JL
+quad: q_JKLM
+[g_1] rhombus(q_JKLM)
+-> ang_bisect(a_KLM,JL)
+
+steps:
+[01] given(g_1) -> rhombus(q_JKLM)
+[02] rhombus_opp_bisect(1) -> ang_bisect(a_KLM,JL)
