@@ -1,0 +1,18 @@
+// pass
+title: "S6-2 - Check It Out 4: Prove Opposite Angles Congruent"
+premises:
+pt: G (0, 0, t), H (0, 0, t), J (0, 0, t), N (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: GH HJ JN NG JK KL LM MJ HM NK
+quad: q_GHJN q_JKLM
+[d_01] intersect_seg(HM,NK,J)
+[g_1] parallelogram(q_GHJN)
+[g_2] parallelogram(q_JKLM)
+-> con_ang(a_GNJ,a_JKL)
+
+steps:
+[01] given(g_1) -> parallelogram(q_GHJN)
+[02] given(g_2) -> parallelogram(q_JKLM)
+[03] pgram_consec_angs(1) -> supplementary(a_GNJ,a_HJN)
+[04] pgram_consec_angs(2) -> supplementary(a_JKL,a_MJK)
+[05] vert_ang() -> con_ang(a_HJN,a_MJK)
+[06] con_supplements(3,4,5) -> con_ang(a_GNJ,a_JKL)

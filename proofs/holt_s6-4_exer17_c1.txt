@@ -1,0 +1,21 @@
+// pass
+title: "S6-4 - Exercise 17: Prove Angles Congruent in a Rhombus"
+premises:
+pt: R (0, 0, t), H (0, 0, t), M (0, 0, t), B (0, 0, t), X (0, 0, t)
+seg: RH HM MB BR HB RM HX MX RX
+tri: t_MHX t_RHX
+quad: q_RHMB
+[d_01] on_line(HB,X)
+[d_02] on_line(RM,X)
+[g_1] rhombus(q_RHMB)
+[g_2] con_seg(MH,RH)
+-> con_ang(a_HMX,a_HRX)
+
+steps:
+[01] given(g_1) -> rhombus(q_RHMB)
+[02] rhombus_opp_bisect(1) -> ang_bisect(a_RHM,HX)
+[03] def_ang_bisect(2) -> con_ang(a_MHX,a_RHX)
+[04] given(g_2) -> con_seg(MH,RH)
+[05] reflex_s() -> con_seg(HX,HX)
+[06] sas(4,3,5) -> con_tri(t_MHX,t_RHX)
+[07] cpctc(6) -> con_ang(a_HMX,a_HRX)

@@ -1,0 +1,12 @@
+// pass
+title: "S6-2 - Theorem 6-2-1 P2 Direct: Opposite Sides of a Parallelogram Are Congruent"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JK KL LM MJ JL
+quad: q_JKLM
+[g_1] parallelogram(q_JKLM)
+-> con_seg(KL,MJ)
+
+steps:
+[01] given(g_1) -> parallelogram(q_JKLM)
+[02] pgram_opp_sides(1) -> con_seg(KL,MJ)

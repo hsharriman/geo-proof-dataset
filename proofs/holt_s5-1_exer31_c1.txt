@@ -1,0 +1,20 @@
+// pass
+title: "S5-1 - Exercise 31: Prove the Angle Bisector Theorem"
+premises:
+pt: P (0, 0, t), Q (0, 0, t), R (0, 0, t), S (0, 0, t)
+seg: PQ PR PS SQ SR
+tri: t_PQS t_PRS
+[g_1] ang_bisect(a_QPR,PS)
+[g_2] right(a_SQP)
+[g_3] right(a_SRP)
+-> con_seg(SQ,SR)
+
+steps:
+[01] given(g_1) -> ang_bisect(a_QPR,PS)
+[02] def_ang_bisect(1) -> con_ang(a_QPS,a_RPS)
+[03] given(g_2) -> right(a_SQP)
+[04] given(g_3) -> right(a_SRP)
+[05] def_con_right(3,4) -> con_ang(a_SQP,a_SRP)
+[06] reflex_s() -> con_seg(PS,PS)
+[07] aas(2,5,6) -> con_tri(t_PQS,t_PRS)
+[08] cpctc(7) -> con_seg(SQ,SR)
