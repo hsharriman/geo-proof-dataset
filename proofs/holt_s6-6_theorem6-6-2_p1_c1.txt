@@ -1,0 +1,17 @@
+// pass
+title: "S6-6 - Theorem 6-6-2 P1: One Pair of Opposite Angles of a Kite Are Congruent"
+premises:
+pt: J (0, 0, t), K (0, 0, t), L (0, 0, t), M (0, 0, t)
+seg: JK KL LM MJ JL
+tri: t_JKL t_JML
+quad: q_JKLM
+[g_1] con_seg(JK,JM)
+[g_2] con_seg(KL,ML)
+-> con_ang(a_JKL,a_JML)
+
+steps:
+[01] given(g_1) -> con_seg(JK,JM)
+[02] given(g_2) -> con_seg(KL,ML)
+[03] reflex_s() -> con_seg(LJ,LJ)
+[04] sss(1,2,3) -> con_tri(t_JKL,t_JML)
+[05] cpctc(4) -> con_ang(a_JKL,a_JML)
