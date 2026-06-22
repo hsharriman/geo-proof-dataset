@@ -10,8 +10,8 @@ tri: t_ADB t_ACB
 
 steps:
 [01] given(g_1) -> midpt(DC,B)
-[02] def_midpt(1) -> con_seg(DB,DC)
+[02] def_midpt(1) -> con_seg(DB,CB)
 [03] given(g_2) -> perp(AB,DC)
 [04] perp_con_ang(3) -> con_ang(a_ABD,a_ABC)
-[05] reflex_s() -> con_seg(AB,AB)
+[05] reflex_s() -> con_seg(AB,DC)
 [06] sas(2,4,5) -> con_tri(t_ADB,t_ACB)

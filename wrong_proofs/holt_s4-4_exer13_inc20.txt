@@ -10,7 +10,7 @@ tri: t_ADB t_ACB
 
 steps:
 [01] given(g_1) -> midpt(DC,B)
-[02] def_midpt(1) -> con_seg(DB,CD)
+[02] def_midpt(1) -> sim_seg(DB,CB)
 [03] given(g_2) -> perp(AB,DC)
 [04] perp_con_ang(3) -> con_ang(a_ABD,a_ABC)
 [05] reflex_s() -> con_seg(AB,AB)
