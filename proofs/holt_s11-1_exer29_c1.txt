@@ -1,0 +1,14 @@
+// pass
+title: "S11-1 - Exercise 29: Prove Theorem 11-1-2"
+premises:
+pt: C (0, 0, t), D (0, 0, t), M (0, 0, t)
+circ: c_CD
+seg: CD MD
+[g_1] perp(MD,CD,D)
+[g_2] radius(c_CD,D)
+-> tangent(c_CD,MD,D)
+
+steps:
+[01] given(g_1) -> perp(MD,CD,D)
+[02] given(g_2) -> radius(c_CD,D)
+[03] tangent_perp_conv(1,2) -> tangent(c_CD,MD,D)

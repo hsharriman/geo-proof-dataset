@@ -1,0 +1,14 @@
+// pass
+title: "S11-1 - Exercise 28: Prove Theorem 11-1-1"
+premises:
+pt: A (0, 0, t), B (0, 0, t), T (0, 0, t)
+circ: c_AB
+seg: AB TB
+[g_1] tangent(c_AB,TB,B)
+[g_2] radius(c_AB,B)
+-> perp(TB,AB,B)
+
+steps:
+[01] given(g_1) -> tangent(c_AB,TB,B)
+[02] given(g_2) -> radius(c_AB,B)
+[03] tangent_perp(1,2) -> perp(TB,AB,B)

@@ -1,0 +1,14 @@
+// pass
+title: "S11-1 - Exercise 30: Prove Theorem 11-1-3"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), P (0, 0, t)
+circ: c_PB
+seg: AB AC
+[g_1] tangent(c_PB,AB,B)
+[g_2] tangent(c_PB,AC,C)
+-> con_seg(AB,AC)
+
+steps:
+[01] given(g_1) -> tangent(c_PB,AB,B)
+[02] given(g_2) -> tangent(c_PB,AC,C)
+[03] con_tangents_ext(1,2) -> con_seg(AB,AC)

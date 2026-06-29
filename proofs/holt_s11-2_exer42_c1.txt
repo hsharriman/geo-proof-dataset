@@ -1,0 +1,16 @@
+// pass
+title: "S11-2 - Exercise 42: Prove Theorem 11-2-3"
+premises:
+pt: C (0, 0, t), D (0, 0, t), E (0, 0, t), F (0, 0, t)
+circ: c_CD
+seg: CD EF
+[g_1] perp(CD,EF,D)
+[g_2] radius(c_CD,D)
+[g_3] chord(c_CD,EF)
+-> seg_bisect(CD,EF,D)
+
+steps:
+[01] given(g_1) -> perp(CD,EF,D)
+[02] given(g_2) -> radius(c_CD,D)
+[03] given(g_3) -> chord(c_CD,EF)
+[04] radius_chord_bisect(1,2,3) -> seg_bisect(CD,EF,D)
