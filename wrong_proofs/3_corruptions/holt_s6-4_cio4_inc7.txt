@@ -1,0 +1,19 @@
+// pass
+title: "S6-4 - Check It Out 4: Prove Congruent Segments in a Rhombus"
+premises:
+pt: P (0, 0, t), Q (0, 0, t), R (0, 0, t), S (0, 0, t), T (0, 0, t)
+seg: PQ QT TS SP PR RQ RS
+tri: t_QPR t_SPR
+quad: q_PQTS
+[g_1] rhombus(q_PQTS)
+[g_2] con_seg(PQ,PS)
+-> con_seg(RQ,RS)
+
+steps:
+[01] given(g_1) -> rhombus(q_PQTS)
+[02] rhombus_opp_bisect(1) -> ang_bisect(a_QPS,PR)
+[03] def_ang_bisect(2) -> linear_pair(a_QPR,a_SPR)
+[04] given(g_2) -> con_seg(PQ,PS)
+[05] reflex_s() -> con_seg(RS,RS)
+[06] sas(4,3,5) -> con_tri(t_RPQ,t_SPR)
+[07] cpctc(6) -> con_seg(RQ,RS)

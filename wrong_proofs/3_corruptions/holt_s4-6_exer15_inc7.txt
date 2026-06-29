@@ -1,0 +1,21 @@
+// pass
+title: "S4-6C1 - Exercise 15: Prove Segments Parallel"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t)
+seg: AC BD AE CE BE DE AB BA CD
+tri: t_AEB t_CED
+[d_01] intersect_seg(AC,BD,E)
+[d_02] transversal(B,A,C,A,C,D,A,C)
+[g_1] midpt(AC,E)
+[g_2] midpt(BD,E)
+-> para(AB,CD)
+
+steps:
+[01] given(g_1) -> midpt(AC,E)
+[02] given(g_2) -> midpt(BD,E)
+[03] def_midpt(1) -> con_seg(AE,CE)
+[04] def_midpt(2) -> con_seg(BE,DA)
+[05] vert_ang() -> con_ang(a_AEB,a_CDE)
+[06] sas(3,5,4) -> con_tri(t_AEB,t_CED)
+[07] cpctc(6) -> con_ang(a_EBA,a_ECD)
+[08] altint_conv(7) -> para(AB,CD)
