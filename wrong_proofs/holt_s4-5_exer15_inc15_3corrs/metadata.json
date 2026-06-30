@@ -1,0 +1,53 @@
+[
+  {
+    "source": "..\\geo-proof-dataset\\proofs\\holt_s4-5_exer15_c1.txt",
+    "output": "geo-proof-dataset\\wrong_proofs\\holt_s4-5_exer15_inc15_3corrs\\holt_s4-5_exer15_inc15.txt",
+    "wrong_id": "inc15",
+    "num_mutations": 3,
+    "mutation_types": [
+      "permutation_tree"
+    ],
+    "mutation_groups": [
+      "control"
+    ],
+    "steps": [
+      7,
+      4,
+      2
+    ],
+    "edit_distance": 3,
+    "mutation_score": 3,
+    "mutations": [
+      {
+        "step": 7,
+        "reason_kept": "def_con_right",
+        "before": "con_right(a_BAE,a_CDE)",
+        "after": "con_right(a_BEA,a_CDE)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      },
+      {
+        "step": 4,
+        "reason_kept": "def_midpt",
+        "before": "con_seg(BE,CE)",
+        "after": "con_seg(BE,CD)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      },
+      {
+        "step": 2,
+        "reason_kept": "def_midpt",
+        "before": "con_seg(AE,DE)",
+        "after": "sim_seg(AE,DE)",
+        "corruption_type": "wrong_statement_tree_predicate",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      }
+    ]
+  }
+]

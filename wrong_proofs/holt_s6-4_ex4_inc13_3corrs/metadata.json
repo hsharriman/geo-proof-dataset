@@ -1,0 +1,53 @@
+[
+  {
+    "source": "..\\geo-proof-dataset\\proofs\\holt_s6-4_ex4_c1.txt",
+    "output": "geo-proof-dataset\\wrong_proofs\\holt_s6-4_ex4_inc13_3corrs\\holt_s6-4_ex4_inc13.txt",
+    "wrong_id": "inc13",
+    "num_mutations": 3,
+    "mutation_types": [
+      "permutation_tree"
+    ],
+    "mutation_groups": [
+      "control"
+    ],
+    "steps": [
+      4,
+      8,
+      7
+    ],
+    "edit_distance": 3,
+    "mutation_score": 3,
+    "mutations": [
+      {
+        "step": 4,
+        "reason_kept": "pgram_opp_sides",
+        "before": "con_seg(EF,GH)",
+        "after": "con_seg(EF,HJ)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      },
+      {
+        "step": 8,
+        "reason_kept": "cpctc",
+        "before": "con_seg(FJ,GJ)",
+        "after": "con_seg(FJ,HJ)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      },
+      {
+        "step": 7,
+        "reason_kept": "sas",
+        "before": "con_tri(t_FJE,t_GJH)",
+        "after": "sim_tri(t_FJE,t_GJH)",
+        "corruption_type": "wrong_statement_tree_predicate",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      }
+    ]
+  }
+]
