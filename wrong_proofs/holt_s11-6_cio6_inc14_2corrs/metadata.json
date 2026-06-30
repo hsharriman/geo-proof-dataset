@@ -1,0 +1,42 @@
+[
+  {
+    "source": "..\\geo-proof-dataset\\proofs\\holt_s11-6_cio6_c1.txt",
+    "output": "geo-proof-dataset\\wrong_proofs\\holt_s11-6_cio6_inc14_2corrs\\holt_s11-6_cio6_inc14.txt",
+    "wrong_id": "inc14",
+    "num_mutations": 2,
+    "mutation_types": [
+      "permutation_tree"
+    ],
+    "mutation_groups": [
+      "control"
+    ],
+    "steps": [
+      3,
+      6
+    ],
+    "edit_distance": 2,
+    "mutation_score": 2,
+    "mutations": [
+      {
+        "step": 3,
+        "reason_kept": "con_inscribed_angs",
+        "before": "con_ang(a_CFG,a_EDG)",
+        "after": "con_ang(a_GCF,a_EDG)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      },
+      {
+        "step": 6,
+        "reason_kept": "con_inscribed_angs",
+        "before": "con_ang(a_FCG,a_DEG)",
+        "after": "con_ang(a_CGF,a_DEG)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      }
+    ]
+  }
+]

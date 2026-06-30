@@ -1,0 +1,21 @@
+// pass
+title: "S4-5C1 - Exercise 15: Prove Right Triangles Congruent by HL"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t)
+seg: AD BC AE DE BE CE
+tri: t_ABE t_DCE
+[g_1] midpt(AD,E)
+[g_2] midpt(BC,E)
+[g_3] right(a_BAE)
+[g_4] right(a_CDE)
+-> con_tri(t_ABE,t_DCE)
+
+steps:
+[01] given(g_1) -> midpt(AD,E)
+[02] def_midpt(1) -> con_seg(CE,DE)
+[03] given(g_2) -> midpt(BC,E)
+[04] def_midpt(3) -> con_seg(AD,CE)
+[05] given(g_3) -> right(a_BAE)
+[06] given(g_4) -> right(a_CDE)
+[07] def_con_right(5,6) -> complementary(a_BAE,a_CDE)
+[08] rhl(7,4,2) -> con_tri(t_ABE,t_DCE)

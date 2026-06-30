@@ -1,0 +1,53 @@
+[
+  {
+    "source": "..\\geo-proof-dataset\\proofs\\holt_s6-4_cio4_c1.txt",
+    "output": "geo-proof-dataset\\wrong_proofs\\holt_s6-4_cio4_inc19_3corrs\\holt_s6-4_cio4_inc19.txt",
+    "wrong_id": "inc19",
+    "num_mutations": 3,
+    "mutation_types": [
+      "permutation_tree"
+    ],
+    "mutation_groups": [
+      "control"
+    ],
+    "steps": [
+      5,
+      6,
+      3
+    ],
+    "edit_distance": 3,
+    "mutation_score": 3,
+    "mutations": [
+      {
+        "step": 5,
+        "reason_kept": "reflex_s",
+        "before": "con_seg(PR,PR)",
+        "after": "con_seg(PQ,PQ)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      },
+      {
+        "step": 6,
+        "reason_kept": "sas",
+        "before": "con_tri(t_QPR,t_SPR)",
+        "after": "con_tri(t_RPQ,t_SPR)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      },
+      {
+        "step": 3,
+        "reason_kept": "def_ang_bisect",
+        "before": "con_ang(a_QPR,a_SPR)",
+        "after": "con_ang(a_QPR,a_SRP)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      }
+    ]
+  }
+]
