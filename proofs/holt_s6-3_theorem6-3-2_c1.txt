@@ -14,7 +14,7 @@ quad: q_ABCD
 steps:
 [01] given(g_1) -> con_seg(AB,CD)
 [02] given(g_2) -> con_seg(BC,DA)
-[03] reflex_s() -> con_seg(BD,BD)
+[03] reflex() -> ref_seg(BD,BD)
 [04] sss(2,1,3) -> con_tri(t_DAB,t_BCD)
 [05] cpctc(4) -> con_ang(a_ABD,a_CDB)
 [06] cpctc(4) -> con_ang(a_CBD,a_ADB)

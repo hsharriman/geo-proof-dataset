@@ -13,7 +13,7 @@ steps:
 [01] given(g_1) -> ang_bisect(a_JLK,LM)
 [02] def_ang_bisect(1) -> con_ang(a_JLM,a_KLM)
 [03] given(g_2) -> con_seg(JL,KL)
-[04] reflex_s() -> con_seg(LM,LM)
+[04] reflex() -> ref_seg(LM,LM)
 [05] sas(3,2,4) -> con_tri(t_JLM,t_KLM)
 [06] cpctc(5) -> con_seg(JM,KM)
 [07] midpt_conv(6) -> midpt(JK,M)

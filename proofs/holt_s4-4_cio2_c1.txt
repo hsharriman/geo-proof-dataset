@@ -11,5 +11,5 @@ tri: t_ABC t_DBC
 steps:
 [01] given(g_1) -> con_seg(BA,BD)
 [02] given(g_2) -> con_ang(a_ABC,a_DBC)
-[03] reflex_s() -> con_seg(BC,BC)
+[03] reflex() -> ref_seg(BC,BC)
 [04] sas(1,2,3) -> con_tri(t_ABC,t_DBC)
