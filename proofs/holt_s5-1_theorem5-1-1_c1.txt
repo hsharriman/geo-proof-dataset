@@ -13,6 +13,6 @@ steps:
 [02] perp_con_ang(1) -> con_ang(a_AYX,a_BYX)
 [03] given(g_1) -> midpt(AB,Y)
 [04] def_midpt(3) -> con_seg(AY,BY)
-[05] reflex_s() -> con_seg(XY,XY)
+[05] reflex() -> ref_seg(XY,XY)
 [06] sas(4,2,5) -> con_tri(t_AYX,t_BYX)
 [07] cpctc(6) -> con_seg(AX,BX)

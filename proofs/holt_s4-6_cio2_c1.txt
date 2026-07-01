@@ -13,6 +13,6 @@ steps:
 [02] given(g_2) -> ang_bisect(a_QRS,PR)
 [03] def_ang_bisect(1) -> con_ang(a_QPR,a_SPR)
 [04] def_ang_bisect(2) -> con_ang(a_QRP,a_SRP)
-[05] reflex_s() -> con_seg(PR,PR)
+[05] reflex() -> ref_seg(PR,PR)
 [06] asa(3,5,4) -> con_tri(t_PQR,t_PSR)
 [07] cpctc(6) -> con_seg(PQ,PS)

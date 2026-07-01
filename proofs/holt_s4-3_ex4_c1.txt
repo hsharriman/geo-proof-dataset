@@ -11,5 +11,5 @@ tri: t_JKL t_MLK
 steps:
 [01] given(g_1) -> con_seg(JK,ML)
 [02] given(g_2) -> con_seg(JL,MK)
-[03] reflex_s() -> con_seg(KL,KL)
+[03] reflex() -> ref_seg(KL,KL)
 [04] sss(1,2,3) -> con_tri(t_JKL,t_MLK)

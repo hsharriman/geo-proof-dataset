@@ -12,5 +12,5 @@ steps:
 [01] given(g_1) -> ang_bisect(a_KLM,JL)
 [02] def_ang_bisect(1) -> con_ang(a_KLJ,a_MLJ)
 [03] given(g_2) -> con_ang(a_JKL,a_JML)
-[04] reflex_s() -> con_seg(JL,JL)
+[04] reflex() -> ref_seg(JL,JL)
 [05] aas(2,3,4) -> con_tri(t_JKL,t_JML)

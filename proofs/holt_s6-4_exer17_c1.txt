@@ -16,6 +16,6 @@ steps:
 [02] rhombus_opp_bisect(1) -> ang_bisect(a_RHM,HX)
 [03] def_ang_bisect(2) -> con_ang(a_MHX,a_RHX)
 [04] given(g_2) -> con_seg(MH,RH)
-[05] reflex_s() -> con_seg(HX,HX)
+[05] reflex() -> ref_seg(HX,HX)
 [06] sas(4,3,5) -> con_tri(t_MHX,t_RHX)
 [07] cpctc(6) -> con_ang(a_HMX,a_HRX)

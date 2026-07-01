@@ -13,6 +13,6 @@ steps:
 [01] given(g_1) -> right(a_ABC)
 [02] given(g_2) -> right(a_CDA)
 [03] def_con_right(1,2) -> con_right(a_ABC,a_CDA)
-[04] reflex_s() -> con_seg(AC,AC)
+[04] reflex() -> ref_seg(AC,AC)
 [05] given(g_3) -> con_seg(AD,BC)
 [06] rhl(3,4,5) -> con_tri(t_ABC,t_CDA)

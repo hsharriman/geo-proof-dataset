@@ -12,7 +12,7 @@ quad: q_JKLM
 steps:
 [01] given(g_1) -> con_seg(JK,JM)
 [02] given(g_2) -> con_seg(KL,ML)
-[03] reflex_s() -> con_seg(LJ,LJ)
+[03] reflex() -> ref_seg(LJ,LJ)
 [04] sss(1,2,3) -> con_tri(t_JKL,t_JML)
 [05] cpctc(4) -> con_ang(a_KLJ,a_JLM)
 [06] ang_bisect_conv(5) -> ang_bisect(a_KLM,JL)
