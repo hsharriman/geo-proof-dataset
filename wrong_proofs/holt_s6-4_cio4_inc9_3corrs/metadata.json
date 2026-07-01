@@ -4,23 +4,15 @@
     "output": "geo-proof-dataset\\wrong_proofs\\holt_s6-4_cio4_inc9_3corrs\\holt_s6-4_cio4_inc9.txt",
     "wrong_id": "inc9",
     "num_mutations": 3,
-    "mutation_types": [
-      "permutation_tree"
-    ],
-    "mutation_groups": [
-      "control"
-    ],
-    "steps": [
-      5,
-      6,
-      3
-    ],
+    "mutation_types": ["permutation_tree"],
+    "mutation_groups": ["control"],
+    "steps": [5, 6, 3],
     "edit_distance": 3,
     "mutation_score": 3,
     "mutations": [
       {
         "step": 5,
-        "reason_kept": "reflex_s",
+        "reason_kept": "reflex",
         "before": "con_seg(PR,PR)",
         "after": "con_seg(TR,TR)",
         "corruption_type": "wrong_statement_tree_object",
