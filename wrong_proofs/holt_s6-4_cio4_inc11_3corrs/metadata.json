@@ -4,25 +4,15 @@
     "output": "geo-proof-dataset\\wrong_proofs\\holt_s6-4_cio4_inc11_3corrs\\holt_s6-4_cio4_inc11.txt",
     "wrong_id": "inc11",
     "num_mutations": 3,
-    "mutation_types": [
-      "permutation_non_tree",
-      "permutation_tree"
-    ],
-    "mutation_groups": [
-      "control",
-      "non_control"
-    ],
-    "steps": [
-      5,
-      6,
-      2
-    ],
+    "mutation_types": ["permutation_non_tree", "permutation_tree"],
+    "mutation_groups": ["control", "non_control"],
+    "steps": [5, 6, 2],
     "edit_distance": 3,
     "mutation_score": 3,
     "mutations": [
       {
         "step": 5,
-        "reason_kept": "reflex_s",
+        "reason_kept": "reflex",
         "before": "con_seg(PR,PR)",
         "after": "con_seg(TS,PR)",
         "corruption_type": "wrong_statement_argument_permutation",

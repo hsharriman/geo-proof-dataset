@@ -8,14 +8,12 @@
     "classifier_label": "non_tree",
     "tree_edit": null,
     "step": 5,
-    "reason_kept": "reflex_s",
+    "reason_kept": "reflex",
     "old_statement": "con_seg(AB,AB)",
     "new_statement": "con_seg(AB,DC)",
     "old_predicate": "con_seg",
     "new_predicate": "con_seg",
-    "changed_arg_indices": [
-      1
-    ],
+    "changed_arg_indices": [1],
     "changed_arg_index": 1,
     "old_arg": "AB",
     "new_arg": "DC"

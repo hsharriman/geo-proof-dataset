@@ -8,7 +8,7 @@
     "classifier_label": "tree",
     "tree_edit": "edit_predicate",
     "step": 5,
-    "reason_kept": "reflex_s",
+    "reason_kept": "reflex",
     "old_statement": "con_seg(AB,AB)",
     "new_statement": "sim_seg(AB,AB)",
     "old_predicate": "con_seg",
