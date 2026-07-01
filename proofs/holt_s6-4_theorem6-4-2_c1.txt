@@ -12,7 +12,7 @@ steps:
 [01] given(g_1) -> rectangle(q_EFGH)
 [02] rectangle_pgram(1) -> parallelogram(q_EFGH)
 [03] pgram_opp_sides(2) -> con_seg(FE,GH)
-[04] reflex_s() -> con_seg(HE,HE)
+[04] reflex() -> ref_seg(HE,HE)
 [05] rectangle(1) -> con_ang(a_FEH,a_GHE)
 [06] sas(3,5,4) -> con_tri(t_FEH,t_GHE)
 [07] cpctc(6) -> con_seg(FH,GE)

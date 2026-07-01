@@ -12,6 +12,6 @@ steps:
 [01] given(g_1) -> parallelogram(q_ABCD)
 [02] pgram_opp_sides(1) -> con_seg(AB,CD)
 [03] pgram_opp_sides(1) -> con_seg(DA,BC)
-[04] reflex_s() -> con_seg(BD,BD)
+[04] reflex() -> ref_seg(BD,BD)
 [05] sss(3,2,4) -> con_tri(t_DAB,t_BCD)
 [06] cpctc(5) -> con_ang(a_DAB,a_BCD)

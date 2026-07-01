@@ -5,13 +5,13 @@ pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t)
 seg: AB DC DB CB
 tri: t_ADB t_ACB
 [g_1] midpt(DC,B)
-[g_2] perp(AB,DC)
+[g_2] perp(AB,DC,B)
 -> con_tri(t_ADB,t_ACB)
 
 steps:
 [01] given(g_1) -> midpt(DC,B)
 [02] def_midpt(1) -> con_seg(DB,CB)
-[03] given(g_2) -> perp(AB,DC)
+[03] given(g_2) -> perp(AB,DC,B)
 [04] perp_con_ang(3) -> con_ang(a_ABD,a_ABC)
-[05] reflex_s() -> con_seg(AB,DC)
+[05] reflex() -> ref_seg(AB,DC)
 [06] sas(2,4,5) -> con_tri(t_ADB,t_ACB)

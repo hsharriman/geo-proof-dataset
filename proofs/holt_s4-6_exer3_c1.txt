@@ -4,14 +4,14 @@ premises:
 pt: R (0, 0, t), S (0, 0, t), T (0, 0, t), X (0, 0, t)
 seg: RX ST SX TX RS RT
 tri: t_RSX t_RTX
-[g_1] perp(RX,ST)
+[g_1] perp(RX,ST,X)
 [g_2] midpt(ST,X)
 -> con_seg(RS,RT)
 
 steps:
-[01] given(g_1) -> perp(RX,ST)
+[01] given(g_1) -> perp(RX,ST,X)
 [02] perp_con_ang(1) -> con_ang(a_RXS,a_RXT)
-[03] reflex_s() -> con_seg(RX,RX)
+[03] reflex() -> ref_seg(RX,RX)
 [04] given(g_2) -> midpt(ST,X)
 [05] def_midpt(4) -> con_seg(SX,TX)
 [06] sas(3,2,5) -> con_tri(t_RSX,t_RTX)

@@ -12,5 +12,5 @@ steps:
 [01] given(g_1) -> ang_bisect(a_NMR,MP)
 [02] def_ang_bisect(1) -> con_ang(a_NMP,a_RMP)
 [03] given(g_2) -> con_seg(MN,MR)
-[04] reflex_s() -> con_seg(MP,MP)
+[04] reflex() -> ref_seg(MP,MP)
 [05] sas(3,2,4) -> con_tri(t_MNP,t_MRP)
