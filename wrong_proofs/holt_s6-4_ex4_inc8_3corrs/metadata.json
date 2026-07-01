@@ -1,0 +1,53 @@
+[
+  {
+    "source": "..\\geo-proof-dataset\\proofs\\holt_s6-4_ex4_c1.txt",
+    "output": "geo-proof-dataset\\wrong_proofs\\holt_s6-4_ex4_inc8_3corrs\\holt_s6-4_ex4_inc8.txt",
+    "wrong_id": "inc8",
+    "num_mutations": 3,
+    "mutation_types": [
+      "permutation_tree"
+    ],
+    "mutation_groups": [
+      "control"
+    ],
+    "steps": [
+      6,
+      5,
+      8
+    ],
+    "edit_distance": 3,
+    "mutation_score": 3,
+    "mutations": [
+      {
+        "step": 6,
+        "reason_kept": "rectangle",
+        "before": "con_ang(a_FEJ,a_GHJ)",
+        "after": "con_ang(a_EFJ,a_GHJ)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      },
+      {
+        "step": 5,
+        "reason_kept": "def_midpt",
+        "before": "con_seg(EJ,HJ)",
+        "after": "con_seg(EJ,FH)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      },
+      {
+        "step": 8,
+        "reason_kept": "cpctc",
+        "before": "con_seg(FJ,GJ)",
+        "after": "con_seg(FJ,FG)",
+        "corruption_type": "wrong_statement_tree_object",
+        "mutation_type": "permutation_tree",
+        "mutation_group": "control",
+        "classifier_label": "control"
+      }
+    ]
+  }
+]

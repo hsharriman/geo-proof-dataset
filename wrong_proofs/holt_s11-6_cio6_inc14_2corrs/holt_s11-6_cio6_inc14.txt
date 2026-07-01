@@ -1,0 +1,21 @@
+// pass
+title: "S11-6 - Technology Lab Try This 6: Prove Similar Triangles from Two Secants"
+premises:
+pt: C (0, 0, t), D (0, 0, t), E (0, 0, t), F (0, 0, t), G (0, 0, t)
+seg: CE FD
+ang: a_CFG a_EDG a_FCG a_DEG
+tri: t_CFG t_EDG
+[g_1] inscribed_angle(a_CFG,CE)
+[g_2] inscribed_angle(a_EDG,CE)
+[g_3] inscribed_angle(a_FCG,FD)
+[g_4] inscribed_angle(a_DEG,FD)
+-> sim_tri(t_CFG,t_EDG)
+
+steps:
+[01] given(g_1) -> inscribed_angle(a_CFG,CE)
+[02] given(g_2) -> inscribed_angle(a_EDG,CE)
+[03] con_inscribed_angs(1,2) -> con_ang(a_GCF,a_EDG)
+[04] given(g_3) -> inscribed_angle(a_FCG,FD)
+[05] given(g_4) -> inscribed_angle(a_DEG,FD)
+[06] con_inscribed_angs(4,5) -> con_ang(a_CGF,a_DEG)
+[07] aa_sim(3,6) -> sim_tri(t_CFG,t_EDG)

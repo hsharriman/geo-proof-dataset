@@ -1,0 +1,21 @@
+[
+  {
+    "source": "..\\geo-proof-dataset\\proofs\\holt_s4-4_exer13_c1.txt",
+    "output": "geo-proof-dataset\\wrong_proofs\\holt_s4-4_exer13_inc34_1corrs\\holt_s4-4_exer13_inc34.txt",
+    "wrong_id": "inc34",
+    "corruption_type": "wrong_statement_tree_predicate",
+    "mutation_kind": "tree",
+    "classifier_label": "tree",
+    "tree_edit": "edit_predicate",
+    "step": 4,
+    "reason_kept": "perp_con_ang",
+    "old_statement": "con_ang(a_ABD,a_ABC)",
+    "new_statement": "supplementary(a_ABD,a_ABC)",
+    "old_predicate": "con_ang",
+    "new_predicate": "supplementary",
+    "changed_arg_indices": [],
+    "changed_arg_index": null,
+    "old_arg": null,
+    "new_arg": null
+  }
+]
