@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Reason Graph</title>
+
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <link rel="stylesheet" href="reason_graph_style.css" />
+</head>
+
+<body>
+  <div id="page">
+    <h2>Reason graph</h2>
+
+    <div id="legend">
+      <div class="legend-item">
+        <div class="legend-line" style="background:#4C78A8"></div>
+        same family
+      </div>
+
+      <div class="legend-item">
+        <div class="legend-line" style="background:#54A24B"></div>
+        application/dependency
+      </div>
+
+      <div class="legend-item">
+        <div class="legend-line" style="background:#F58518"></div>
+        consequence
+      </div>
+
+      <div class="legend-item">
+        <div class="legend-line" style="background:#E45756"></div>
+        converse/confusion
+      </div>
+
+      <div class="legend-item">
+        <div class="legend-line" style="background:#B279A2"></div>
+        confusion
+      </div>
+
+      <div class="legend-item">
+        <div class="legend-line" style="background:#777777"></div>
+        related
+      </div>
+    </div>
+
+    <div id="overview"></div>
+  </div>
+
+  <div id="modal">
+    <div id="modal-content">
+      <div id="modal-header">
+        <div id="modal-title">Detail graph</div>
+        <div id="close">&times;</div>
+      </div>
+
+      <div id="detail-network"></div>
+    </div>
+  </div>
+
+  <script src="reason_graph_data.js"></script>
+  <script src="reason_graph_app.js"></script>
+</body>
+</html>

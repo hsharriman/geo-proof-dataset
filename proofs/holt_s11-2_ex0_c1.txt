@@ -1,0 +1,18 @@
+// pass
+title: "S11-2 - Proof Box: Theorem 11-2-2 Part 1"
+premises:
+pt: A (0, 0, t), B (0, 0, t), C (0, 0, t), D (0, 0, t), E (0, 0, t)
+seg: AB AD AC AE BC DE
+ang: a_BAC a_DAE
+tri: t_BAC t_DAE
+[g_1] con_ang(a_BAC,a_DAE)
+[g_2] con_seg(AB,AD)
+[g_3] con_seg(AC,AE)
+-> con_seg(BC,DE)
+
+steps:
+[01] given(g_1) -> con_ang(a_BAC,a_DAE)
+[02] given(g_2) -> con_seg(AB,AD)
+[03] given(g_3) -> con_seg(AC,AE)
+[04] sas(2,1,3) -> con_tri(t_BAC,t_DAE)
+[05] cpctc(4) -> con_seg(BC,DE)

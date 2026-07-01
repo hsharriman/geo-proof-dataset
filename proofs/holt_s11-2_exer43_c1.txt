@@ -1,0 +1,14 @@
+// pass
+title: "S11-2 - Exercise 43: Prove Theorem 11-2-4"
+premises:
+pt: A (0, 0, t), G (0, 0, t), H (0, 0, t), J (0, 0, t), K (0, 0, t)
+circ: c_AJ
+seg: JK GH
+[g_1] perp_bisector(JK,GH,A)
+[g_2] chord(c_AJ,GH)
+-> radius(c_AJ,J)
+
+steps:
+[01] given(g_1) -> perp_bisector(JK,GH,A)
+[02] given(g_2) -> chord(c_AJ,GH)
+[03] radius_chord_bisect_conv(1,2) -> radius(c_AJ,J)

@@ -1,0 +1,1548 @@
+window.GRAPH_DATA = {
+  "families": {
+    "triangle_congruence": [
+      "sas",
+      "sss",
+      "asa",
+      "aas",
+      "rhl"
+    ],
+    "triangle_similarity": [
+      "aa_sim",
+      "sss_sim",
+      "sas_sim"
+    ],
+    "special_triangles": [
+      "def_isosceles",
+      "base_angle",
+      "base_angle_conv",
+      "equilat_equiang",
+      "equiang_equilat",
+      "def_equilateral",
+      "def_equiangular"
+    ],
+    "angle_congruence": [
+      "reflex_a",
+      "vert_ang",
+      "third_angle",
+      "def_ang_bisect",
+      "ang_bisect_conv",
+      "perp_con_ang",
+      "con_supplements",
+      "con_supplements_same",
+      "con_complements",
+      "con_complements_same"
+    ],
+    "segment_congruence": [
+      "reflex_s",
+      "def_midpt",
+      "midpt_conv",
+      "perp_bisector",
+      "con_transitive"
+    ],
+    "parallel_lines": [
+      "altint",
+      "altext",
+      "corresp_ang",
+      "sameside_ang",
+      "altint_conv",
+      "altext_conv",
+      "corresp_ang_conv",
+      "sameside_ang_conv"
+    ],
+    "perpendicular_right": [
+      "def_perp",
+      "def_con_right"
+    ],
+    "linear_pair": [
+      "def_linear_pair",
+      "linear_pair_conv"
+    ],
+    "parallelogram": [
+      "def_parallelogram",
+      "pgram_opp_sides",
+      "pgram_opp_angs",
+      "pgram_consec_angs",
+      "pgram_diag_bisect",
+      "pgram_opp_sides_conv",
+      "pgram_opp_angs_conv",
+      "pgram_consec_angs_conv",
+      "pgram_diag_bisect_conv",
+      "pgram_opp_side_para"
+    ],
+    "rectangle": [
+      "rectangle",
+      "rectangle_pgram",
+      "rect_diag_con",
+      "rect_diag_con_conv",
+      "rect_pgram_ang"
+    ],
+    "rhombus": [
+      "rhombus_pgram",
+      "rhombus_diag_perp",
+      "rhombus_opp_bisect",
+      "rhombus_diag_perp_conv",
+      "rhombus_opp_bisect_conv",
+      "rhombus_consec_sides"
+    ],
+    "other_quadrilaterals": [
+      "kite_diag_perp",
+      "kite_opp_con_ang",
+      "isos_trap_base_angs",
+      "isos_trap_base_angs_conv",
+      "isos_trap_con_diags"
+    ],
+    "triangle_centers": [
+      "circumcenter",
+      "incenter"
+    ]
+  },
+  "family_edges": {
+    "triangle_congruence": [
+      [
+        "sas",
+        "sss",
+        "same family",
+        "same_triangle_congruence_family"
+      ],
+      [
+        "sas",
+        "asa",
+        "same family",
+        "same_triangle_congruence_family"
+      ],
+      [
+        "sas",
+        "aas",
+        "same family",
+        "same_triangle_congruence_family"
+      ],
+      [
+        "sas",
+        "rhl",
+        "same family",
+        "same_triangle_congruence_family"
+      ],
+      [
+        "sss",
+        "asa",
+        "same family",
+        "same_triangle_congruence_family"
+      ],
+      [
+        "sss",
+        "aas",
+        "same family",
+        "same_triangle_congruence_family"
+      ],
+      [
+        "sss",
+        "rhl",
+        "same family",
+        "same_triangle_congruence_family"
+      ],
+      [
+        "asa",
+        "aas",
+        "same family",
+        "same_triangle_congruence_family"
+      ],
+      [
+        "asa",
+        "rhl",
+        "same family",
+        "same_triangle_congruence_family"
+      ],
+      [
+        "aas",
+        "rhl",
+        "same family",
+        "same_triangle_congruence_family"
+      ]
+    ],
+    "triangle_similarity": [
+      [
+        "aa_sim",
+        "sss_sim",
+        "same family",
+        "same_triangle_similarity_family"
+      ],
+      [
+        "aa_sim",
+        "sas_sim",
+        "same family",
+        "same_triangle_similarity_family"
+      ],
+      [
+        "sss_sim",
+        "sas_sim",
+        "same family",
+        "same_triangle_similarity_family"
+      ]
+    ],
+    "special_triangles": [
+      [
+        "def_isosceles",
+        "base_angle",
+        "same family",
+        "isosceles_triangle_family"
+      ],
+      [
+        "def_isosceles",
+        "base_angle_conv",
+        "same family",
+        "isosceles_triangle_family"
+      ],
+      [
+        "base_angle",
+        "base_angle_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "equilat_equiang",
+        "equiang_equilat",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "equilat_equiang",
+        "def_equilateral",
+        "same family",
+        "equilateral_equiangular_family"
+      ],
+      [
+        "equilat_equiang",
+        "def_equiangular",
+        "same family",
+        "equilateral_equiangular_family"
+      ],
+      [
+        "equiang_equilat",
+        "def_equilateral",
+        "same family",
+        "equilateral_equiangular_family"
+      ],
+      [
+        "equiang_equilat",
+        "def_equiangular",
+        "same family",
+        "equilateral_equiangular_family"
+      ],
+      [
+        "base_angle_conv",
+        "def_isosceles",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "def_equilateral",
+        "def_isosceles",
+        "application/dependency",
+        "special_triangle_definition_dependency"
+      ],
+      [
+        "def_equilateral",
+        "equilat_equiang",
+        "application/dependency",
+        "special_triangle_angle_dependency"
+      ],
+      [
+        "def_equiangular",
+        "equiang_equilat",
+        "application/dependency",
+        "special_triangle_side_dependency"
+      ]
+    ],
+    "angle_congruence": [
+      [
+        "reflex_a",
+        "vert_ang",
+        "same family",
+        "angle_congruence_family"
+      ],
+      [
+        "reflex_a",
+        "third_angle",
+        "same family",
+        "angle_congruence_family"
+      ],
+      [
+        "vert_ang",
+        "third_angle",
+        "same family",
+        "angle_congruence_family"
+      ],
+      [
+        "vert_ang",
+        "def_ang_bisect",
+        "same family",
+        "angle_congruence_family"
+      ],
+      [
+        "third_angle",
+        "def_ang_bisect",
+        "same family",
+        "angle_congruence_family"
+      ],
+      [
+        "def_ang_bisect",
+        "perp_con_ang",
+        "same family",
+        "angle_congruence_family"
+      ],
+      [
+        "def_ang_bisect",
+        "ang_bisect_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "con_supplements",
+        "con_supplements_same",
+        "same family",
+        "supplement_family"
+      ],
+      [
+        "con_complements",
+        "con_complements_same",
+        "same family",
+        "complement_family"
+      ],
+      [
+        "con_supplements",
+        "con_complements",
+        "confusion",
+        "supplement_complement_confusion"
+      ],
+      [
+        "con_supplements_same",
+        "con_complements_same",
+        "confusion",
+        "supplement_complement_confusion"
+      ]
+    ],
+    "segment_congruence": [
+      [
+        "reflex_s",
+        "def_midpt",
+        "same family",
+        "segment_congruence_family"
+      ],
+      [
+        "def_midpt",
+        "perp_bisector",
+        "same family",
+        "segment_congruence_family"
+      ],
+      [
+        "reflex_s",
+        "con_transitive",
+        "same family",
+        "segment_congruence_family"
+      ],
+      [
+        "def_midpt",
+        "midpt_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ]
+    ],
+    "parallel_lines": [
+      [
+        "altint",
+        "altext",
+        "same family",
+        "parallel_angle_family"
+      ],
+      [
+        "altint",
+        "corresp_ang",
+        "same family",
+        "parallel_angle_family"
+      ],
+      [
+        "altint",
+        "sameside_ang",
+        "same family",
+        "parallel_angle_family"
+      ],
+      [
+        "altext",
+        "corresp_ang",
+        "same family",
+        "parallel_angle_family"
+      ],
+      [
+        "altext",
+        "sameside_ang",
+        "same family",
+        "parallel_angle_family"
+      ],
+      [
+        "corresp_ang",
+        "sameside_ang",
+        "same family",
+        "parallel_angle_family"
+      ],
+      [
+        "altint",
+        "altint_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "altext",
+        "altext_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "corresp_ang",
+        "corresp_ang_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "sameside_ang",
+        "sameside_ang_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "altint_conv",
+        "altext_conv",
+        "converse/confusion",
+        "parallel_converse_family"
+      ],
+      [
+        "altint_conv",
+        "corresp_ang_conv",
+        "converse/confusion",
+        "parallel_converse_family"
+      ],
+      [
+        "altint_conv",
+        "sameside_ang_conv",
+        "converse/confusion",
+        "parallel_converse_family"
+      ],
+      [
+        "altext_conv",
+        "corresp_ang_conv",
+        "converse/confusion",
+        "parallel_converse_family"
+      ],
+      [
+        "altext_conv",
+        "sameside_ang_conv",
+        "converse/confusion",
+        "parallel_converse_family"
+      ],
+      [
+        "corresp_ang_conv",
+        "sameside_ang_conv",
+        "converse/confusion",
+        "parallel_converse_family"
+      ]
+    ],
+    "perpendicular_right": [
+      [
+        "def_perp",
+        "def_con_right",
+        "same family",
+        "right_angle_family"
+      ]
+    ],
+    "linear_pair": [
+      [
+        "def_linear_pair",
+        "linear_pair_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ]
+    ],
+    "parallelogram": [
+      [
+        "def_parallelogram",
+        "pgram_opp_sides",
+        "same family",
+        "parallelogram_family"
+      ],
+      [
+        "def_parallelogram",
+        "pgram_opp_angs",
+        "same family",
+        "parallelogram_family"
+      ],
+      [
+        "def_parallelogram",
+        "pgram_consec_angs",
+        "same family",
+        "parallelogram_family"
+      ],
+      [
+        "def_parallelogram",
+        "pgram_diag_bisect",
+        "same family",
+        "parallelogram_family"
+      ],
+      [
+        "pgram_opp_sides",
+        "pgram_opp_sides_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "pgram_opp_angs",
+        "pgram_opp_angs_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "pgram_consec_angs",
+        "pgram_consec_angs_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "pgram_diag_bisect",
+        "pgram_diag_bisect_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "pgram_opp_sides_conv",
+        "pgram_opp_angs_conv",
+        "converse/confusion",
+        "parallelogram_converse_family"
+      ],
+      [
+        "pgram_opp_sides_conv",
+        "pgram_opp_side_para",
+        "converse/confusion",
+        "parallelogram_converse_family"
+      ],
+      [
+        "pgram_opp_angs_conv",
+        "pgram_consec_angs_conv",
+        "converse/confusion",
+        "parallelogram_converse_family"
+      ],
+      [
+        "pgram_diag_bisect_conv",
+        "pgram_opp_side_para",
+        "converse/confusion",
+        "parallelogram_converse_family"
+      ],
+      [
+        "pgram_opp_side_para",
+        "def_parallelogram",
+        "application/dependency",
+        "parallelogram_parallel_dependency"
+      ]
+    ],
+    "rectangle": [
+      [
+        "rectangle",
+        "rectangle_pgram",
+        "same family",
+        "rectangle_family"
+      ],
+      [
+        "rectangle",
+        "rect_diag_con",
+        "same family",
+        "rectangle_family"
+      ],
+      [
+        "rectangle_pgram",
+        "rect_diag_con",
+        "same family",
+        "rectangle_family"
+      ],
+      [
+        "rect_diag_con",
+        "rect_diag_con_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "rect_diag_con_conv",
+        "rect_pgram_ang",
+        "converse/confusion",
+        "rectangle_converse_family"
+      ]
+    ],
+    "rhombus": [
+      [
+        "rhombus_pgram",
+        "rhombus_diag_perp",
+        "same family",
+        "rhombus_family"
+      ],
+      [
+        "rhombus_pgram",
+        "rhombus_opp_bisect",
+        "same family",
+        "rhombus_family"
+      ],
+      [
+        "rhombus_diag_perp",
+        "rhombus_diag_perp_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "rhombus_opp_bisect",
+        "rhombus_opp_bisect_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "rhombus_diag_perp_conv",
+        "rhombus_opp_bisect_conv",
+        "converse/confusion",
+        "rhombus_converse_family"
+      ],
+      [
+        "rhombus_opp_bisect_conv",
+        "rhombus_consec_sides",
+        "converse/confusion",
+        "rhombus_converse_family"
+      ]
+    ],
+    "other_quadrilaterals": [
+      [
+        "kite_diag_perp",
+        "kite_opp_con_ang",
+        "same family",
+        "kite_family"
+      ],
+      [
+        "isos_trap_base_angs",
+        "isos_trap_base_angs_conv",
+        "converse/confusion",
+        "converse_confusion"
+      ],
+      [
+        "isos_trap_base_angs",
+        "isos_trap_con_diags",
+        "same family",
+        "isosceles_trapezoid_family"
+      ],
+      [
+        "isos_trap_base_angs_conv",
+        "isos_trap_con_diags",
+        "same family",
+        "isosceles_trapezoid_family"
+      ]
+    ],
+    "triangle_centers": [
+      [
+        "circumcenter",
+        "incenter",
+        "same family",
+        "triangle_center_family"
+      ]
+    ]
+  },
+  "pair_edges": {
+    "angle_congruence|||linear_pair": [
+      [
+        "con_supplements",
+        "def_linear_pair",
+        "application/dependency",
+        "supplement_linear_pair_dependency"
+      ],
+      [
+        "con_supplements",
+        "linear_pair_conv",
+        "application/dependency",
+        "supplement_linear_pair_dependency"
+      ],
+      [
+        "def_linear_pair",
+        "con_supplements",
+        "same family",
+        "supplement_family"
+      ],
+      [
+        "linear_pair_conv",
+        "con_supplements",
+        "same family",
+        "supplement_family"
+      ]
+    ],
+    "angle_congruence|||other_quadrilaterals": [
+      [
+        "kite_opp_con_ang",
+        "def_ang_bisect",
+        "application/dependency",
+        "kite_angle_dependency"
+      ]
+    ],
+    "angle_congruence|||parallel_lines": [
+      [
+        "vert_ang",
+        "altint",
+        "application/dependency",
+        "angle_parallel_dependency"
+      ],
+      [
+        "vert_ang",
+        "altext",
+        "application/dependency",
+        "angle_parallel_dependency"
+      ],
+      [
+        "vert_ang",
+        "corresp_ang",
+        "application/dependency",
+        "angle_parallel_dependency"
+      ],
+      [
+        "third_angle",
+        "altint",
+        "application/dependency",
+        "angle_parallel_dependency"
+      ],
+      [
+        "third_angle",
+        "corresp_ang",
+        "application/dependency",
+        "angle_parallel_dependency"
+      ],
+      [
+        "def_ang_bisect",
+        "altint",
+        "application/dependency",
+        "angle_parallel_dependency"
+      ],
+      [
+        "def_ang_bisect",
+        "corresp_ang",
+        "application/dependency",
+        "angle_parallel_dependency"
+      ],
+      [
+        "con_supplements",
+        "sameside_ang",
+        "application/dependency",
+        "supplement_parallel_dependency"
+      ],
+      [
+        "con_supplements_same",
+        "sameside_ang",
+        "application/dependency",
+        "supplement_parallel_dependency"
+      ]
+    ],
+    "angle_congruence|||parallelogram": [
+      [
+        "pgram_opp_angs",
+        "vert_ang",
+        "application/dependency",
+        "parallelogram_angle_dependency"
+      ],
+      [
+        "pgram_consec_angs",
+        "con_supplements",
+        "application/dependency",
+        "parallelogram_supplement_dependency"
+      ]
+    ],
+    "angle_congruence|||perpendicular_right": [
+      [
+        "def_perp",
+        "perp_con_ang",
+        "same family",
+        "perpendicular_family"
+      ],
+      [
+        "def_con_right",
+        "perp_con_ang",
+        "same family",
+        "right_angle_family"
+      ]
+    ],
+    "angle_congruence|||rhombus": [
+      [
+        "rhombus_opp_bisect",
+        "def_ang_bisect",
+        "application/dependency",
+        "rhombus_angle_dependency"
+      ]
+    ],
+    "angle_congruence|||special_triangles": [
+      [
+        "def_ang_bisect",
+        "base_angle",
+        "same family",
+        "angle_congruence_family"
+      ]
+    ],
+    "angle_congruence|||triangle_centers": [
+      [
+        "incenter",
+        "def_ang_bisect",
+        "application/dependency",
+        "triangle_center_dependency"
+      ],
+      [
+        "incenter",
+        "ang_bisect_conv",
+        "application/dependency",
+        "triangle_center_angle_dependency"
+      ]
+    ],
+    "angle_congruence|||triangle_congruence": [
+      [
+        "asa",
+        "vert_ang",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "asa",
+        "third_angle",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "asa",
+        "def_ang_bisect",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "asa",
+        "perp_con_ang",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "aas",
+        "vert_ang",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "aas",
+        "third_angle",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "aas",
+        "def_ang_bisect",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "aas",
+        "perp_con_ang",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "sas",
+        "vert_ang",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "sas",
+        "def_ang_bisect",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "sas",
+        "perp_con_ang",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "rhl",
+        "perp_con_ang",
+        "application/dependency",
+        "triangle_congruence_right_angle_dependency"
+      ],
+      [
+        "perp_con_ang",
+        "asa",
+        "application/dependency",
+        "perpendicular_triangle_congruence_dependency"
+      ],
+      [
+        "perp_con_ang",
+        "aas",
+        "application/dependency",
+        "perpendicular_triangle_congruence_dependency"
+      ]
+    ],
+    "angle_congruence|||triangle_similarity": [
+      [
+        "aa_sim",
+        "vert_ang",
+        "application/dependency",
+        "triangle_similarity_angle_dependency"
+      ],
+      [
+        "aa_sim",
+        "third_angle",
+        "application/dependency",
+        "triangle_similarity_angle_dependency"
+      ],
+      [
+        "aa_sim",
+        "def_ang_bisect",
+        "application/dependency",
+        "triangle_similarity_angle_dependency"
+      ]
+    ],
+    "linear_pair|||parallel_lines": [
+      [
+        "def_linear_pair",
+        "sameside_ang",
+        "application/dependency",
+        "linear_pair_parallel_dependency"
+      ],
+      [
+        "linear_pair_conv",
+        "sameside_ang_conv",
+        "application/dependency",
+        "linear_pair_parallel_dependency"
+      ]
+    ],
+    "other_quadrilaterals|||perpendicular_right": [
+      [
+        "def_perp",
+        "kite_diag_perp",
+        "same family",
+        "perpendicular_family"
+      ],
+      [
+        "kite_diag_perp",
+        "def_perp",
+        "application/dependency",
+        "kite_perpendicular_dependency"
+      ]
+    ],
+    "other_quadrilaterals|||rectangle": [
+      [
+        "isos_trap_con_diags",
+        "rect_diag_con",
+        "application/dependency",
+        "trapezoid_diagonal_dependency"
+      ]
+    ],
+    "other_quadrilaterals|||special_triangles": [
+      [
+        "isos_trap_base_angs",
+        "base_angle",
+        "application/dependency",
+        "trapezoid_angle_dependency"
+      ]
+    ],
+    "other_quadrilaterals|||triangle_congruence": [
+      [
+        "kite_diag_perp",
+        "rhl",
+        "application/dependency",
+        "kite_triangle_congruence_dependency"
+      ],
+      [
+        "kite_opp_con_ang",
+        "asa",
+        "application/dependency",
+        "kite_triangle_congruence_dependency"
+      ],
+      [
+        "isos_trap_base_angs",
+        "aas",
+        "application/dependency",
+        "trapezoid_triangle_congruence_dependency"
+      ],
+      [
+        "isos_trap_con_diags",
+        "sss",
+        "application/dependency",
+        "trapezoid_triangle_congruence_dependency"
+      ]
+    ],
+    "other|||triangle_congruence": [
+      [
+        "sas",
+        "cpctc",
+        "consequence",
+        "triangle_congruence_to_parts"
+      ],
+      [
+        "sss",
+        "cpctc",
+        "consequence",
+        "triangle_congruence_to_parts"
+      ],
+      [
+        "asa",
+        "cpctc",
+        "consequence",
+        "triangle_congruence_to_parts"
+      ],
+      [
+        "aas",
+        "cpctc",
+        "consequence",
+        "triangle_congruence_to_parts"
+      ],
+      [
+        "rhl",
+        "cpctc",
+        "consequence",
+        "triangle_congruence_to_parts"
+      ]
+    ],
+    "parallel_lines|||parallelogram": [
+      [
+        "altint_conv",
+        "def_parallelogram",
+        "application/dependency",
+        "parallel_parallelogram_dependency"
+      ],
+      [
+        "corresp_ang_conv",
+        "def_parallelogram",
+        "application/dependency",
+        "parallel_parallelogram_dependency"
+      ],
+      [
+        "sameside_ang_conv",
+        "def_parallelogram",
+        "application/dependency",
+        "parallel_parallelogram_dependency"
+      ],
+      [
+        "altint_conv",
+        "pgram_opp_side_para",
+        "application/dependency",
+        "parallel_parallelogram_dependency"
+      ],
+      [
+        "corresp_ang_conv",
+        "pgram_opp_side_para",
+        "application/dependency",
+        "parallel_parallelogram_dependency"
+      ]
+    ],
+    "parallel_lines|||triangle_congruence": [
+      [
+        "altint",
+        "asa",
+        "application/dependency",
+        "parallel_triangle_congruence_dependency"
+      ],
+      [
+        "corresp_ang",
+        "asa",
+        "application/dependency",
+        "parallel_triangle_congruence_dependency"
+      ],
+      [
+        "altint",
+        "aas",
+        "application/dependency",
+        "parallel_triangle_congruence_dependency"
+      ],
+      [
+        "corresp_ang",
+        "aas",
+        "application/dependency",
+        "parallel_triangle_congruence_dependency"
+      ]
+    ],
+    "parallel_lines|||triangle_similarity": [
+      [
+        "aa_sim",
+        "altint",
+        "application/dependency",
+        "triangle_similarity_parallel_angle_dependency"
+      ],
+      [
+        "aa_sim",
+        "altext",
+        "application/dependency",
+        "triangle_similarity_parallel_angle_dependency"
+      ],
+      [
+        "aa_sim",
+        "corresp_ang",
+        "application/dependency",
+        "triangle_similarity_parallel_angle_dependency"
+      ],
+      [
+        "altint",
+        "aa_sim",
+        "application/dependency",
+        "parallel_triangle_similarity_dependency"
+      ],
+      [
+        "corresp_ang",
+        "aa_sim",
+        "application/dependency",
+        "parallel_triangle_similarity_dependency"
+      ],
+      [
+        "altext",
+        "aa_sim",
+        "application/dependency",
+        "parallel_triangle_similarity_dependency"
+      ]
+    ],
+    "parallelogram|||rectangle": [
+      [
+        "rectangle",
+        "def_parallelogram",
+        "application/dependency",
+        "rectangle_parallelogram_dependency"
+      ],
+      [
+        "rectangle_pgram",
+        "def_parallelogram",
+        "application/dependency",
+        "rectangle_parallelogram_dependency"
+      ],
+      [
+        "rectangle_pgram",
+        "pgram_opp_sides",
+        "application/dependency",
+        "rectangle_parallelogram_dependency"
+      ],
+      [
+        "rectangle_pgram",
+        "pgram_opp_angs",
+        "application/dependency",
+        "rectangle_parallelogram_dependency"
+      ]
+    ],
+    "parallelogram|||rhombus": [
+      [
+        "rhombus_pgram",
+        "def_parallelogram",
+        "application/dependency",
+        "rhombus_parallelogram_dependency"
+      ],
+      [
+        "rhombus_pgram",
+        "pgram_opp_sides",
+        "application/dependency",
+        "rhombus_parallelogram_dependency"
+      ]
+    ],
+    "parallelogram|||segment_congruence": [
+      [
+        "def_midpt",
+        "pgram_opp_sides",
+        "same family",
+        "segment_congruence_family"
+      ],
+      [
+        "def_midpt",
+        "pgram_diag_bisect",
+        "application/dependency",
+        "segment_quadrilateral_dependency"
+      ],
+      [
+        "midpt_conv",
+        "pgram_diag_bisect_conv",
+        "application/dependency",
+        "segment_quadrilateral_dependency"
+      ],
+      [
+        "pgram_opp_sides",
+        "def_midpt",
+        "application/dependency",
+        "parallelogram_segment_dependency"
+      ],
+      [
+        "pgram_diag_bisect",
+        "def_midpt",
+        "application/dependency",
+        "parallelogram_segment_dependency"
+      ]
+    ],
+    "parallelogram|||triangle_congruence": [
+      [
+        "sas",
+        "pgram_opp_sides",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "sss",
+        "pgram_opp_sides",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "pgram_opp_sides",
+        "sss",
+        "application/dependency",
+        "parallelogram_triangle_congruence_dependency"
+      ],
+      [
+        "pgram_opp_sides",
+        "sas",
+        "application/dependency",
+        "parallelogram_triangle_congruence_dependency"
+      ],
+      [
+        "pgram_opp_angs",
+        "asa",
+        "application/dependency",
+        "parallelogram_triangle_congruence_dependency"
+      ],
+      [
+        "pgram_diag_bisect",
+        "sas",
+        "application/dependency",
+        "parallelogram_triangle_congruence_dependency"
+      ]
+    ],
+    "perpendicular_right|||rectangle": [
+      [
+        "rectangle",
+        "def_con_right",
+        "application/dependency",
+        "rectangle_right_angle_dependency"
+      ]
+    ],
+    "perpendicular_right|||rhombus": [
+      [
+        "def_perp",
+        "rhombus_diag_perp",
+        "same family",
+        "perpendicular_family"
+      ],
+      [
+        "rhombus_diag_perp",
+        "def_perp",
+        "application/dependency",
+        "rhombus_perpendicular_dependency"
+      ]
+    ],
+    "perpendicular_right|||segment_congruence": [
+      [
+        "perp_bisector",
+        "def_perp",
+        "application/dependency",
+        "segment_perpendicular_dependency"
+      ]
+    ],
+    "perpendicular_right|||triangle_centers": [
+      [
+        "circumcenter",
+        "def_perp",
+        "application/dependency",
+        "triangle_center_perpendicular_dependency"
+      ]
+    ],
+    "perpendicular_right|||triangle_congruence": [
+      [
+        "rhl",
+        "def_con_right",
+        "application/dependency",
+        "triangle_congruence_right_angle_dependency"
+      ],
+      [
+        "rhl",
+        "def_perp",
+        "application/dependency",
+        "triangle_congruence_right_angle_dependency"
+      ],
+      [
+        "def_perp",
+        "rhl",
+        "application/dependency",
+        "perpendicular_triangle_congruence_dependency"
+      ],
+      [
+        "def_con_right",
+        "rhl",
+        "application/dependency",
+        "right_triangle_congruence_dependency"
+      ]
+    ],
+    "rectangle|||segment_congruence": [
+      [
+        "def_midpt",
+        "rect_diag_con",
+        "same family",
+        "segment_congruence_family"
+      ],
+      [
+        "rect_diag_con",
+        "def_midpt",
+        "application/dependency",
+        "rectangle_segment_dependency"
+      ]
+    ],
+    "rectangle|||triangle_congruence": [
+      [
+        "sss",
+        "rect_diag_con",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "rect_diag_con",
+        "sss",
+        "application/dependency",
+        "rectangle_triangle_congruence_dependency"
+      ],
+      [
+        "rect_diag_con",
+        "sas",
+        "application/dependency",
+        "rectangle_triangle_congruence_dependency"
+      ]
+    ],
+    "rhombus|||triangle_congruence": [
+      [
+        "rhombus_diag_perp",
+        "rhl",
+        "application/dependency",
+        "rhombus_triangle_congruence_dependency"
+      ],
+      [
+        "rhombus_opp_bisect",
+        "asa",
+        "application/dependency",
+        "rhombus_triangle_congruence_dependency"
+      ],
+      [
+        "rhombus_consec_sides",
+        "sss",
+        "application/dependency",
+        "rhombus_triangle_congruence_dependency"
+      ]
+    ],
+    "segment_congruence|||special_triangles": [
+      [
+        "def_midpt",
+        "base_angle_conv",
+        "same family",
+        "segment_congruence_family"
+      ]
+    ],
+    "segment_congruence|||triangle_centers": [
+      [
+        "perp_bisector",
+        "circumcenter",
+        "application/dependency",
+        "segment_triangle_center_dependency"
+      ],
+      [
+        "circumcenter",
+        "perp_bisector",
+        "application/dependency",
+        "triangle_center_dependency"
+      ],
+      [
+        "circumcenter",
+        "def_midpt",
+        "application/dependency",
+        "triangle_center_segment_dependency"
+      ]
+    ],
+    "segment_congruence|||triangle_congruence": [
+      [
+        "sas",
+        "reflex_s",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "sas",
+        "def_midpt",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "sas",
+        "con_transitive",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "sas",
+        "perp_bisector",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "sss",
+        "reflex_s",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "sss",
+        "def_midpt",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "sss",
+        "con_transitive",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "sss",
+        "perp_bisector",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "rhl",
+        "reflex_s",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ],
+      [
+        "rhl",
+        "def_midpt",
+        "application/dependency",
+        "triangle_congruence_segment_dependency"
+      ]
+    ],
+    "segment_congruence|||triangle_similarity": [
+      [
+        "sas_sim",
+        "reflex_s",
+        "application/dependency",
+        "triangle_similarity_segment_dependency"
+      ],
+      [
+        "sas_sim",
+        "def_midpt",
+        "application/dependency",
+        "triangle_similarity_segment_dependency"
+      ],
+      [
+        "sss_sim",
+        "reflex_s",
+        "application/dependency",
+        "triangle_similarity_segment_dependency"
+      ],
+      [
+        "sss_sim",
+        "def_midpt",
+        "application/dependency",
+        "triangle_similarity_segment_dependency"
+      ]
+    ],
+    "special_triangles|||triangle_centers": [
+      [
+        "incenter",
+        "base_angle",
+        "application/dependency",
+        "triangle_center_angle_dependency"
+      ]
+    ],
+    "special_triangles|||triangle_congruence": [
+      [
+        "asa",
+        "base_angle",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "aas",
+        "base_angle",
+        "application/dependency",
+        "triangle_congruence_angle_dependency"
+      ],
+      [
+        "base_angle",
+        "asa",
+        "application/dependency",
+        "special_triangle_to_triangle_congruence_dependency"
+      ],
+      [
+        "base_angle",
+        "aas",
+        "application/dependency",
+        "special_triangle_to_triangle_congruence_dependency"
+      ]
+    ],
+    "special_triangles|||triangle_similarity": [
+      [
+        "aa_sim",
+        "base_angle",
+        "application/dependency",
+        "triangle_similarity_angle_dependency"
+      ],
+      [
+        "base_angle",
+        "aa_sim",
+        "application/dependency",
+        "special_triangle_to_triangle_similarity_dependency"
+      ]
+    ],
+    "triangle_congruence|||triangle_similarity": [
+      [
+        "sas",
+        "sas_sim",
+        "confusion",
+        "triangle_congruence_similarity_confusion"
+      ],
+      [
+        "sss",
+        "sss_sim",
+        "confusion",
+        "triangle_congruence_similarity_confusion"
+      ],
+      [
+        "asa",
+        "aa_sim",
+        "confusion",
+        "triangle_congruence_similarity_confusion"
+      ],
+      [
+        "aas",
+        "aa_sim",
+        "confusion",
+        "triangle_congruence_similarity_confusion"
+      ]
+    ]
+  }
+};
+
+window.EDGE_COLORS = {
+  "same family": "#4C78A8",
+  "application/dependency": "#54A24B",
+  "consequence": "#F58518",
+  "converse/confusion": "#E45756",
+  "confusion": "#B279A2",
+  "related": "#777777"
+};
+
+window.FAMILY_COLORS = {
+  "triangle_congruence": "#dbeafe",
+  "triangle_similarity": "#ede9fe",
+  "special_triangles": "#fef3c7",
+  "angle_congruence": "#dcfce7",
+  "segment_congruence": "#e0f2fe",
+  "parallel_lines": "#fce7f3",
+  "perpendicular_right": "#fee2e2",
+  "linear_pair": "#f3f4f6",
+  "parallelogram": "#ecfccb",
+  "rectangle": "#ccfbf1",
+  "rhombus": "#ffedd5",
+  "other_quadrilaterals": "#f5f5f4",
+  "triangle_centers": "#e9d5ff",
+  "other": "#eeeeee"
+};
